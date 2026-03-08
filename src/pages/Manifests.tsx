@@ -1,7 +1,11 @@
 import { site } from '../content/siteContent'
+import MediaSlot from '../components/MediaSlot'
 import styles from './Manifests.module.css'
 
-// ── Replace or extend this list as loads become available ──
+// ── Add / edit loads here as inventory changes ───────────────────────────────
+// thumbnailUrl : image shown in the table row  (e.g. '/images/mf-001-thumb.jpg')
+// videoUrl     : YouTube embed URL or direct MP4  (e.g. 'https://www.youtube.com/embed/ID')
+// file         : PDF manifest link  (e.g. '/manifests/MF-2025-001.pdf')
 const manifests = [
   {
     id: 'MF-2025-001',
@@ -11,6 +15,8 @@ const manifests = [
     hub: 'Texas',
     status: 'Available',
     notes: 'Mixed French door and top-freezer. Scratch-and-dent.',
+    thumbnailUrl: null as string | null,
+    videoUrl: null as string | null,
     file: null as string | null,
   },
   {
@@ -21,6 +27,8 @@ const manifests = [
     hub: 'New Jersey',
     status: 'Available',
     notes: 'Customer returns. Pairs and singles included.',
+    thumbnailUrl: null as string | null,
+    videoUrl: null as string | null,
     file: null as string | null,
   },
   {
@@ -31,9 +39,12 @@ const manifests = [
     hub: 'Texas',
     status: 'Pending',
     notes: 'Gas and electric mixed. Cosmetic damage only.',
+    thumbnailUrl: null as string | null,
+    videoUrl: null as string | null,
     file: null as string | null,
   },
 ]
+// ────────────────────────────────────────────────────────────────────────────
 
 const statusColor: Record<string, string> = {
   Available: styles.statusAvailable,
@@ -112,13 +123,14 @@ export default function Manifests() {
                 If something in the video does not look right to you, you say so before you buy.
                 That is the whole point.
               </p>
-              <div className={styles.videoCallout}>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <polygon points="23 7 16 12 23 17 23 7"/>
-                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
-                </svg>
-                <p>We send the video. You review it. You decide. Nothing ships until you are satisfied with what you saw.</p>
-              </div>
+              <MediaSlot
+                src={null}
+                type="video"
+                alt="Sample load walkthrough video"
+                label="Sample Walkthrough Video — paste a YouTube embed URL or MP4 link"
+                aspectRatio="16/9"
+                className={styles.sampleVideo}
+              />
             </div>
 
           </div>
@@ -132,7 +144,8 @@ export default function Manifests() {
             <div>
               <h2>Current load manifests</h2>
               <p>
-                Each row is an available or upcoming load. Call to request the video walkthrough for any entry.
+                Each row is an available or upcoming load. Each load has a thumbnail and video walkthrough
+                — set <code className={styles.code}>thumbnailUrl</code> and <code className={styles.code}>videoUrl</code> in the manifests array to activate them.
               </p>
             </div>
             <a href={`tel:${site.contact.phone}`} className="btn btn--primary">
@@ -150,6 +163,7 @@ export default function Manifests() {
                 <table>
                   <thead>
                     <tr>
+                      <th>Photo</th>
                       <th>Load #</th>
                       <th>Date</th>
                       <th>Category</th>
@@ -157,12 +171,29 @@ export default function Manifests() {
                       <th>Hub</th>
                       <th>Status</th>
                       <th>Notes</th>
-                      <th></th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {manifests.map((m) => (
                       <tr key={m.id}>
+                        <td>
+                          <div className={styles.thumbCell}>
+                            {m.thumbnailUrl ? (
+                              <img
+                                src={m.thumbnailUrl}
+                                alt={`Load ${m.id} thumbnail`}
+                                className={styles.thumb}
+                              />
+                            ) : (
+                              <div className={styles.thumbPlaceholder} title="Add thumbnailUrl to activate">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                                </svg>
+                              </div>
+                            )}
+                          </div>
+                        </td>
                         <td className={styles.loadId}>{m.id}</td>
                         <td className={styles.date}>{new Date(m.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</td>
                         <td>{m.category}</td>
@@ -175,19 +206,39 @@ export default function Manifests() {
                         </td>
                         <td className={styles.notes}>{m.notes}</td>
                         <td>
-                          {m.file ? (
-                            <a href={m.file} target="_blank" rel="noreferrer" className="btn btn--outline" style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}>
-                              Download
-                            </a>
-                          ) : (
-                            <a
-                              href={`tel:${site.contact.phone}`}
-                              className="btn btn--ghost"
-                              style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}
-                            >
-                              Call to Inquire
-                            </a>
-                          )}
+                          <div className={styles.actions}>
+                            {m.videoUrl && (
+                              <a
+                                href={m.videoUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="btn btn--primary"
+                                style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}
+                              >
+                                Watch Video
+                              </a>
+                            )}
+                            {m.file && (
+                              <a
+                                href={m.file}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="btn btn--outline"
+                                style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}
+                              >
+                                Download
+                              </a>
+                            )}
+                            {!m.videoUrl && !m.file && (
+                              <a
+                                href={`tel:${site.contact.phone}`}
+                                className="btn btn--ghost"
+                                style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}
+                              >
+                                Call to Inquire
+                              </a>
+                            )}
+                          </div>
                         </td>
                       </tr>
                     ))}

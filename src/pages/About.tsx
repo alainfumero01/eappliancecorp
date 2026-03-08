@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom'
 import { site } from '../content/siteContent'
+import MediaSlot from '../components/MediaSlot'
 import styles from './About.module.css'
+
+// ── MEDIA — swap null for a real URL to activate ────────────────────────────
+const STORY_IMAGE = null    // e.g. '/images/about-warehouse.jpg'
+// ────────────────────────────────────────────────────────────────────────────
 
 export default function About() {
   return (
@@ -44,7 +49,14 @@ export default function About() {
               </p>
             </div>
             <div className={styles.storyAside}>
-              <div className={styles.asideBlock}>
+              <MediaSlot
+                src={STORY_IMAGE}
+                type="image"
+                alt="E-Appliance Recycling Corp warehouse or team photo"
+                label="About Photo — warehouse, team, or load image. Recommended 800×600, JPG or WebP."
+                aspectRatio="4/3"
+              />
+              <div className={styles.asideBlock} style={{ marginTop: '1.25rem' }}>
                 <p className={styles.bigNum}>{site.yearsInBusiness}+</p>
                 <p className={styles.bigLabel}>Years in business</p>
               </div>

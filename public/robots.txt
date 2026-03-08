@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eappliancecorp.vercel.app/sitemap.xml

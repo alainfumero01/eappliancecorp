@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom'
 import { site } from '../content/siteContent'
+import MediaSlot from '../components/MediaSlot'
 import styles from './Home.module.css'
+
+// ── MEDIA — swap null for a real URL to activate each slot ──────────────────
+const HERO_IMAGE = null           // e.g. '/images/warehouse.jpg'
+const SHOWCASE_VIDEO = null       // e.g. 'https://www.youtube.com/embed/YOUR_ID'
+// ────────────────────────────────────────────────────────────────────────────
 
 export default function Home() {
   return (
@@ -51,6 +57,20 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── HERO IMAGE ── */}
+      <div className={styles.heroImageWrap}>
+        <div className="container">
+          <MediaSlot
+            src={HERO_IMAGE}
+            type="image"
+            alt="E-Appliance Recycling Corp — warehouse or load photo"
+            label="Hero / Banner Image — recommended 1600×700, JPG or WebP"
+            aspectRatio="21/9"
+            className={styles.heroImage}
+          />
+        </div>
+      </div>
 
       {/* ── WHAT MAKES US DIFFERENT ── */}
       <section className="section section--alt">
@@ -126,6 +146,30 @@ export default function Home() {
                 <p>{step.detail}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FEATURED VIDEO ── */}
+      <section className="section">
+        <div className="container">
+          <div className={styles.videoSection}>
+            <div>
+              <span className="eyebrow">See it for yourself</span>
+              <h2>What a load walkthrough looks like</h2>
+              <p style={{ color: 'var(--color-text-muted)', marginTop: '0.75rem' }}>
+                Every buyer gets a video like this before committing to a load. Add your own
+                walkthrough clip here to show buyers exactly what to expect.
+              </p>
+            </div>
+            <MediaSlot
+              src={SHOWCASE_VIDEO}
+              type="video"
+              alt="Sample load walkthrough video"
+              label="Featured Video — paste a YouTube embed URL or upload an MP4"
+              aspectRatio="16/9"
+              className={styles.showcaseVideo}
+            />
           </div>
         </div>
       </section>

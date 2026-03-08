@@ -145,6 +145,55 @@
   font-size: 0.9375rem;
 }
 
+/* ── SAMPLE VIDEO SLOT ── */
+.sampleVideo {
+  margin-top: 1.25rem;
+  width: 100%;
+}
+
+/* ── THUMBNAIL CELL ── */
+.thumbCell {
+  width: 56px;
+}
+
+.thumb {
+  width: 56px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+  border: 1px solid var(--color-border);
+}
+
+.thumbPlaceholder {
+  width: 56px;
+  height: 42px;
+  background: var(--color-surface-2);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-border-strong);
+}
+
+/* ── ACTIONS CELL ── */
+.actions {
+  display: flex;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+}
+
+/* ── CODE INLINE ── */
+.code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8em;
+  background: var(--color-surface-2);
+  border-radius: 3px;
+  padding: 0.1rem 0.35rem;
+  color: var(--color-accent);
+}
+
 /* ── TABLE HEADER ── */
 .tableHeader {
   display: flex;
