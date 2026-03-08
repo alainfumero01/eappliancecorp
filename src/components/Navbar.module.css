@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
   height: var(--nav-h);
@@ -12,17 +12,31 @@
   height: 100%;
 }
 
-.logo {
+/* ── LOGO ── */
+.logoLink {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logoImg {
+  height: 52px;
+  width: auto;
+  display: block;
+}
+
+.logoText {
   font-size: 1.0625rem;
   font-weight: 700;
   letter-spacing: -0.015em;
-  color: var(--color-text);
+  color: var(--color-navy);
 }
 
 .logoAccent {
   color: var(--color-accent);
 }
 
+/* ── DESKTOP LINKS ── */
 .links {
   display: none;
   list-style: none;
@@ -40,8 +54,8 @@
 }
 
 .link:hover {
-  color: var(--color-text);
-  background: var(--color-surface-2);
+  color: var(--color-navy);
+  background: var(--color-accent-light);
 }
 
 .linkActive {
@@ -53,6 +67,7 @@
   display: none;
 }
 
+/* ── HAMBURGER ── */
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -77,6 +92,7 @@
 .barOpen2 { opacity: 0; }
 .barOpen3 { transform: translateY(-7px) rotate(-45deg); }
 
+/* ── MOBILE MENU ── */
 .mobileMenu {
   background: var(--color-surface);
   border-top: 1px solid var(--color-border);
@@ -100,13 +116,8 @@
   transition: color 0.15s;
 }
 
-.mobileLink:hover {
-  color: var(--color-text);
-}
-
-.mobileLinkActive {
-  color: var(--color-accent) !important;
-}
+.mobileLink:hover { color: var(--color-text); }
+.mobileLinkActive { color: var(--color-accent) !important; }
 
 .mobileCtas {
   display: flex;

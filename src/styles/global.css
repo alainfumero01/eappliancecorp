@@ -1,5 +1,7 @@
 /* =============================================
-   DESIGN TOKENS
+   DESIGN TOKENS — colors sampled from logo
+   Royal blue  #1E55C8  (truck / illustration)
+   Dark navy   #0D1B72  (E-Appliances Corp. text)
    ============================================= */
 :root {
   --color-bg: #F8F7F4;
@@ -9,9 +11,14 @@
   --color-border-strong: #C0BAB1;
   --color-text: #1A1916;
   --color-text-muted: #6B6560;
-  --color-accent: #1B3A5C;
-  --color-accent-hover: #132B46;
-  --color-accent-light: #EBF0F7;
+
+  /* ── Logo blues ── */
+  --color-accent: #1E55C8;
+  --color-accent-hover: #1848AE;
+  --color-accent-light: #E6EEFB;
+  --color-navy: #0D1B72;
+  --color-navy-hover: #091560;
+
   --color-green: #15803D;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -20,7 +27,7 @@
   --radius-lg: 10px;
 
   --max-w: 1160px;
-  --nav-h: 64px;
+  --nav-h: 68px;
   --cta-bar-h: 56px;
 }
 

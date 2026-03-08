@@ -10,7 +10,13 @@ export default function Footer() {
       <div className="container">
         <div className={styles.inner}>
           <div className={styles.brand}>
-            <span className={styles.name}>{site.name}</span>
+            <img
+              src="/images/logo.png"
+              alt={site.name}
+              className={styles.logoImg}
+              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'block' }}
+            />
+            <span className={styles.logoImgFallback} style={{ display: 'none' }}>{site.name}</span>
             <p className={styles.tagline}>{site.tagline}</p>
             <p className={styles.hubs}>{site.hubs.join(' · ')}</p>
           </div>

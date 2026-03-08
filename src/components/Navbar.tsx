@@ -17,8 +17,19 @@ export default function Navbar() {
     <header className={styles.header}>
       <nav className={styles.nav} aria-label="Main navigation">
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
-          <Link to="/" className={styles.logo} onClick={() => setOpen(false)}>
-            <span className={styles.logoAccent}>E-Appliance</span> Recycling Corp
+
+          {/* Logo — place file at public/images/logo.png */}
+          <Link to="/" className={styles.logoLink} onClick={() => setOpen(false)}>
+            <img
+              src="/images/logo.png"
+              alt={site.name}
+              className={styles.logoImg}
+              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'block' }}
+            />
+            {/* Text fallback shown if logo.png is missing */}
+            <span className={styles.logoText} style={{ display: 'none' }}>
+              <span className={styles.logoAccent}>E-Appliances</span> Corp.
+            </span>
           </Link>
 
           <ul className={styles.links}>
