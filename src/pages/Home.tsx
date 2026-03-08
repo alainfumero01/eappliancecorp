@@ -4,7 +4,7 @@ import MediaSlot from '../components/MediaSlot'
 import styles from './Home.module.css'
 
 // ── MEDIA — swap null for a real URL to activate each slot ──────────────────
-const HERO_IMAGE = null           // e.g. '/images/warehouse.jpg'
+const HERO_IMAGE = '/images/hero-banner.svg'
 const SHOWCASE_VIDEO = null       // e.g. 'https://www.youtube.com/embed/YOUR_ID'
 // ────────────────────────────────────────────────────────────────────────────
 
