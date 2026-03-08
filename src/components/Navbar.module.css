@@ -12,16 +12,37 @@
   height: 100%;
 }
 
-/* ── LOGO ── */
+/* ── LOGO ──
+   The wordmark PNG has large white padding around the text.
+   .logoWrap clips the padding so the text fills the navbar
+   without appearing tiny.
+   Tuning: adjust width/margin-top if the logo file changes.
+── */
 .logoLink {
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logoWrap {
+  /* clip the white canvas padding to show only the wordmark */
+  width: 190px;
+  height: 56px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .logoImg {
-  height: 52px;
-  width: auto;
+  /* image is 1333×1000 px; text fills ~70% width × 40% height,
+     centered on canvas. Expanding width to ~290px makes the text
+     ~75px tall; negative margin-top offsets the top whitespace. */
+  width: 290px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: -48px;
   display: block;
 }
 
