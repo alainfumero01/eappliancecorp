@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { site } from '../../content/siteContent'
 import PageSeo from '../../components/PageSeo'
 import Breadcrumb from '../../components/Breadcrumb'
@@ -9,9 +9,9 @@ export default function ScratchAndDent() {
     <>
       <PageSeo
         title="Scratch-and-Dent Appliances Wholesale | E-Appliance Recycling Corp"
-        description="Wholesale scratch-and-dent appliance loads for resellers. Fully functional units with cosmetic damage only. High-margin inventory available from Texas and New Jersey distribution hubs."
+        description="Wholesale scratch-and-dent appliance loads with practical condition notes and as-is dealer terms."
         canonical="/scratch-and-dent-appliances"
-        og={{ title: 'Scratch-and-Dent Appliances Wholesale', description: 'Fully functional scratch-and-dent appliance loads for resellers. Maximum margin inventory.', type: 'website' }}
+        og={{ title: 'Scratch-and-Dent Appliances Wholesale', description: 'Dealer-only scratch-and-dent appliance loads sold by the load under as-is terms.', type: 'website' }}
         twitter={{ card: 'summary', title: 'Scratch-and-Dent Appliances Wholesale' }}
       />
 
@@ -19,10 +19,10 @@ export default function ScratchAndDent() {
         <div className="container">
           <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Scratch-and-Dent Appliances', path: '/scratch-and-dent-appliances' }]} />
           <span className="eyebrow">Wholesale scratch-and-dent</span>
-          <h1>Scratch-and-Dent Appliances — Wholesale by the Load</h1>
+          <h1>Scratch-and-Dent Appliances - Wholesale by the Load</h1>
           <p className={styles.lead}>
-            Scratch-and-dent appliances offer resellers a repeatable margin opportunity: fully functional units
-            at a significant discount from retail because of cosmetic imperfections that consumers may notice but many buyers do not care about.
+            This category is for buyers who understand cosmetic variability and buy based on load economics, not
+            showroom presentation.
           </p>
         </div>
       </section>
@@ -30,28 +30,19 @@ export default function ScratchAndDent() {
       <section className="section section--alt">
         <div className="container">
           <div className={styles.contentBlock}>
-            <span className="eyebrow">The scratch-and-dent opportunity</span>
-            <h2>What scratch-and-dent appliances are and why resellers buy them</h2>
+            <span className="eyebrow">Category definition</span>
+            <h2>What to expect in scratch-and-dent loads</h2>
             <p>
-              Scratch-and-dent appliances are units that left the factory or warehouse with visible cosmetic damage —
-              a dent in the door panel, a scratch along the side, a scuff on the top surface. The damage happened in
-              manufacturing, transit, or warehouse handling. The internal components — the compressor, the motor,
-              the electronics — are untouched. The appliance works exactly as it was designed to.
+              Scratch-and-dent inventory includes units with visible cosmetic wear from handling, warehouse movement,
+              or transport events. Panel dents, finish scratches, and edge scuffs are common examples.
             </p>
             <p>
-              Retailers typically can not sell cosmetically imperfect units at full price. Instead, they discount them
-              heavily or route them through liquidation channels. That discount is what creates the margin for resellers.
-              A refrigerator with a dent on the left side panel that retails for $1,200 new might sell wholesale at a
-              fraction of that — and a buyer who installs it against a wall will never see the dent anyway.
+              Buyers usually choose this category for discount channels, outlet retail, and high-turn appliance resale.
+              The purchase decision depends on your tolerance for cosmetic grade spread and your downstream customer profile.
             </p>
             <p>
-              We sell scratch-and-dent appliance loads from our Texas and New Jersey distribution hubs. All units are
-              verified functional before going into a load. The cosmetic damage is described accurately in the load
-              description and visible in the video walkthrough we provide before purchase.
-            </p>
-            <p>
-              Loads are sold by the load, not by the unit. Pricing, load sizes, and available categories vary — call
-              or text to discuss what is currently in stock.
+              We review the active load profile before release and confirm wholesale terms before pickup.
+              This category is sold as-is and is not structured as consumer-grade retail inventory.
             </p>
           </div>
         </div>
@@ -59,23 +50,23 @@ export default function ScratchAndDent() {
 
       <section className="section">
         <div className="container">
-          <h2>What makes our scratch-and-dent loads different</h2>
+          <h2>What makes this category work for resellers</h2>
           <div className={styles.featureGrid}>
             <div className={styles.featureCard}>
-              <h3>Verified to operate</h3>
-              <p>Cosmetic damage only — mechanical and electrical function is confirmed on every unit before it goes in a load.</p>
+              <h3>Lower acquisition cost</h3>
+              <p>Pricing reflects cosmetic grade variability and wholesale lot structure.</p>
             </div>
             <div className={styles.featureCard}>
-              <h3>Visible damage described accurately</h3>
-              <p>We describe the nature and location of cosmetic damage honestly. No surprises when the load arrives.</p>
+              <h3>Consistent turnover channels</h3>
+              <p>Outlet and value-focused buyers often prioritize function and price over appearance.</p>
             </div>
             <div className={styles.featureCard}>
-              <h3>Video walkthrough included</h3>
-              <p>You see the actual units and their actual cosmetic condition on video before you decide to buy.</p>
+              <h3>Flexible category mix</h3>
+              <p>Loads can include multiple appliance categories depending on current inbound supply.</p>
             </div>
             <div className={styles.featureCard}>
-              <h3>High-margin inventory</h3>
-              <p>Significant gap between wholesale cost and resale value — particularly for buyers in used appliance and discount retail markets.</p>
+              <h3>Two-hub access</h3>
+              <p>Pickup and freight coordination available through Texas and New Jersey hubs.</p>
             </div>
           </div>
         </div>
@@ -85,16 +76,12 @@ export default function ScratchAndDent() {
         <div className="container">
           <div className={styles.splitGrid}>
             <div>
-              <h2>Scratch-and-dent categories we carry</h2>
+              <h2>Who this is not for</h2>
               <ul className={styles.checkList}>
-                {['Refrigerators & Freezers (all configurations)',
-                  'Washers & Dryers',
-                  'Ranges & Ovens',
-                  'Dishwashers',
-                  'Microwaves'].map(item => (
+                {site.legal.notFor.map((item) => (
                   <li key={item} className={styles.checkItem}>
                     <span className={styles.checkIcon} aria-hidden="true">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                     </span>
                     {item}
                   </li>
@@ -102,19 +89,15 @@ export default function ScratchAndDent() {
               </ul>
             </div>
             <div>
-              <h2>Who buys scratch-and-dent wholesale loads</h2>
-              <p>Our buyers come from a range of resale channels where cosmetic condition is a secondary concern:</p>
+              <h2>How purchase and pickup works</h2>
               <ul className={styles.checkList}>
-                {['Used appliance dealers and retailers',
-                  'Discount and outlet appliance stores',
-                  'Rental property owners buying in volume',
-                  'Flea market and liquidation sellers',
-                  'Online marketplace resellers'].map(item => (
-                  <li key={item} className={styles.checkItem}>
+                {site.process.map((step) => (
+                  <li key={step.step} className={styles.checkItem}>
                     <span className={styles.checkIcon} aria-hidden="true">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                     </span>
-                    {item}
+                    <strong style={{ marginRight: '0.35rem' }}>{step.label}:</strong>
+                    {step.detail}
                   </li>
                 ))}
               </ul>
@@ -140,8 +123,8 @@ export default function ScratchAndDent() {
         <div className="container">
           <div className={styles.ctaInner}>
             <div>
-              <h2>Ready to source scratch-and-dent wholesale?</h2>
-              <p>Call or text — we will describe what is available and send a video before any commitment.</p>
+              <h2>Need active scratch-and-dent loads?</h2>
+              <p>Send category and volume requirements and we will return current options.</p>
             </div>
             <div className={styles.ctaBtns}>
               <a href={`tel:${site.contact.phone}`} className="btn btn--primary btn--lg">Call {site.contact.phoneDisplay}</a>

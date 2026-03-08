@@ -1,11 +1,11 @@
-import { site } from '../content/siteContent'
+﻿import { site } from '../content/siteContent'
 import MediaSlot from '../components/MediaSlot'
 import PageSeo from '../components/PageSeo'
 import Breadcrumb from '../components/Breadcrumb'
 import { CANONICAL_DOMAIN } from '../seo/seoRoutes'
 import styles from './Manifests.module.css'
 
-// Add / edit loads here as inventory changes
+// Add or edit loads here as inventory changes.
 const manifests = [
   {
     id: 'MF-2025-001',
@@ -14,7 +14,7 @@ const manifests = [
     units: 24,
     hub: 'Texas',
     status: 'Available',
-    notes: 'Mixed French door and top-freezer. Scratch-and-dent.',
+    notes: 'Mixed refrigerator configurations. Cosmetic grading varies by unit.',
     thumbnailUrl: null as string | null,
     videoUrl: null as string | null,
     file: null as string | null,
@@ -26,7 +26,7 @@ const manifests = [
     units: 30,
     hub: 'New Jersey',
     status: 'Available',
-    notes: 'Customer returns. Pairs and singles included.',
+    notes: 'Pairs and singles in one mixed load. Review count and condition notes.',
     thumbnailUrl: null as string | null,
     videoUrl: null as string | null,
     file: null as string | null,
@@ -38,7 +38,7 @@ const manifests = [
     units: 18,
     hub: 'Texas',
     status: 'Pending',
-    notes: 'Gas and electric mixed. Cosmetic damage only.',
+    notes: 'Mixed fuel profile and mixed cosmetic grade.',
     thumbnailUrl: null as string | null,
     videoUrl: null as string | null,
     file: null as string | null,
@@ -60,7 +60,7 @@ const itemListSchema = {
   itemListElement: manifests.map((m, i) => ({
     '@type': 'ListItem',
     position: i + 1,
-    name: `Load ${m.id}: ${m.category} — ${m.units} units — ${m.hub} — ${m.status}`,
+    name: `Load ${m.id}: ${m.category} - ${m.units} units - ${m.hub} - ${m.status}`,
     description: m.notes,
   })),
 }
@@ -70,9 +70,13 @@ export default function Manifests() {
     <>
       <PageSeo
         title="Appliance Load Manifests & Current Inventory | E-Appliance Recycling Corp"
-        description="View available wholesale appliance loads by category, quantity, and hub location. Customer returns and scratch-and-dent inventory with video walkthroughs available before purchase."
+        description="Review current appliance loads by category, count, and hub. Understand as-is condition expectations before you buy."
         canonical="/manifests"
-        og={{ title: 'Appliance Load Manifests & Current Inventory', description: 'Available wholesale appliance loads with video walkthroughs before purchase.', type: 'website' }}
+        og={{
+          title: 'Appliance Load Manifests & Current Inventory',
+          description: 'Current dealer-only appliance loads with practical condition guidance and pickup details.',
+          type: 'website',
+        }}
         twitter={{ card: 'summary', title: 'Appliance Load Manifests & Inventory' }}
         schema={itemListSchema}
       />
@@ -80,12 +84,11 @@ export default function Manifests() {
       <section className={styles.header}>
         <div className="container">
           <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Inventory & Manifests', path: '/manifests' }]} />
-          <span className="eyebrow">Inventory &amp; Manifests</span>
-          <h1>What we have and how it works</h1>
+          <span className="eyebrow">Inventory and manifests</span>
+          <h1>Current load visibility for wholesale buyers</h1>
           <p className={styles.lead}>
-            All inventory is customer returns and scratch-and-dent — every unit functional,
-            cosmetic flaws only. We do not run a live catalog. Loads are posted here as they
-            come in, and walked on video before you commit to anything.
+            Use this page to review active loads by hub, category, and count. Inventory is wholesale and as-is.
+            Mix and condition vary by load, so review notes and media before confirming purchase.
           </p>
         </div>
       </section>
@@ -94,15 +97,20 @@ export default function Manifests() {
         <div className="container">
           <div className={styles.carryRow}>
             <div>
-              <h2>What we typically carry</h2>
-              <p>
-                Mix varies load by load. Call or text to ask what categories are available right now.
-                Everything we sell has been verified to operate — the only known issues are cosmetic.
-              </p>
+              <h2>Typical condition expectations</h2>
+              <ul style={{ marginTop: '0.75rem', paddingLeft: '1rem' }}>
+                {site.legal.conditionExpectations.map((item) => (
+                  <li key={item} style={{ marginTop: '0.5rem' }}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
             <ul className={styles.catGrid}>
               {site.inventoryCategories.map((cat) => (
-                <li key={cat} className={styles.catItem}>{cat}</li>
+                <li key={cat} className={styles.catItem}>
+                  {cat}
+                </li>
               ))}
             </ul>
           </div>
@@ -113,7 +121,7 @@ export default function Manifests() {
         <div className="container">
           <div className={styles.processVideoRow}>
             <div className={styles.processSide}>
-              <h2>From first call to pickup</h2>
+              <h2>How purchase and pickup works</h2>
               <div className={styles.processList}>
                 {site.process.map((step, i) => (
                   <div key={step.step} className={styles.processItem}>
@@ -131,22 +139,20 @@ export default function Manifests() {
             </div>
 
             <div className={styles.videoSide}>
-              <span className="eyebrow">Before you buy</span>
-              <h2>You get a video first</h2>
+              <span className="eyebrow">Media and representation</span>
+              <h2>Use notes, manifest rows, and media together</h2>
               <p>
-                Every available load gets a walkthrough recorded before we ask you to make
-                any decision. You see the actual units — actual dents, actual quantity, actual
-                mix. Not a photo, not a description alone. An actual walkthrough.
+                A manifest row gives category, count, hub, and status. Walkthrough media, when available, adds visual
+                condition context. Buyers should review both before confirming payment and pickup.
               </p>
               <p style={{ marginTop: '0.875rem' }}>
-                If something in the video does not look right to you, you say so before you buy.
-                That is the whole point.
+                Final release is based on agreed wholesale terms and active inventory at the time of confirmation.
               </p>
               <MediaSlot
                 src={null}
                 type="video"
                 alt="Sample load walkthrough video"
-                label="Sample Walkthrough Video — paste a YouTube embed URL or MP4 link"
+                label="Sample walkthrough media placeholder"
                 aspectRatio="16/9"
                 className={styles.sampleVideo}
               />
@@ -161,8 +167,9 @@ export default function Manifests() {
             <div>
               <h2>Current load manifests</h2>
               <p>
-                Each row is an available or upcoming load. Each load has a thumbnail and video walkthrough
-                — set <code className={styles.code}>thumbnailUrl</code> and <code className={styles.code}>videoUrl</code> in the manifests array to activate them.
+                Each row represents one wholesale load. To activate richer listing details, add
+                <code className={styles.code}> thumbnailUrl </code> and
+                <code className={styles.code}> videoUrl </code> for each item.
               </p>
             </div>
             <a href={`tel:${site.contact.phone}`} className="btn btn--primary">
@@ -172,7 +179,7 @@ export default function Manifests() {
 
           {manifests.length === 0 ? (
             <div className={styles.empty}>
-              <p>No manifests posted yet. Call or text to ask about current availability.</p>
+              <p>No manifests posted yet. Call or text for current load availability.</p>
             </div>
           ) : (
             <>
@@ -208,37 +215,59 @@ export default function Manifests() {
                             ) : (
                               <div className={styles.thumbPlaceholder} title="Add thumbnailUrl to activate">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                                  <circle cx="8.5" cy="8.5" r="1.5" />
+                                  <polyline points="21 15 16 10 5 21" />
                                 </svg>
                               </div>
                             )}
                           </div>
                         </td>
                         <td className={styles.loadId}>{m.id}</td>
-                        <td className={styles.date}>{new Date(m.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</td>
+                        <td className={styles.date}>
+                          {new Date(m.date).toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric',
+                          })}
+                        </td>
                         <td>{m.category}</td>
                         <td className={styles.colHide}>{m.units}</td>
                         <td className={styles.colHide}>{m.hub}</td>
                         <td>
-                          <span className={[styles.status, statusColor[m.status] ?? ''].join(' ')}>
-                            {m.status}
-                          </span>
+                          <span className={[styles.status, statusColor[m.status] ?? ''].join(' ')}>{m.status}</span>
                         </td>
                         <td className={`${styles.notes} ${styles.colHide}`}>{m.notes}</td>
                         <td>
                           <div className={styles.actions}>
                             {m.videoUrl && (
-                              <a href={m.videoUrl} target="_blank" rel="noreferrer" className="btn btn--primary" style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}>
+                              <a
+                                href={m.videoUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="btn btn--primary"
+                                style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}
+                              >
                                 Watch Video
                               </a>
                             )}
                             {m.file && (
-                              <a href={m.file} target="_blank" rel="noreferrer" className="btn btn--outline" style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}>
+                              <a
+                                href={m.file}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="btn btn--outline"
+                                style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}
+                              >
                                 Download
                               </a>
                             )}
                             {!m.videoUrl && !m.file && (
-                              <a href={`tel:${site.contact.phone}`} className="btn btn--ghost" style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}>
+                              <a
+                                href={`tel:${site.contact.phone}`}
+                                className="btn btn--ghost"
+                                style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}
+                              >
                                 Call to Inquire
                               </a>
                             )}
@@ -250,9 +279,9 @@ export default function Manifests() {
                 </table>
               </div>
               <p className={styles.tableNote}>
-                <strong>Available</strong> — ready to purchase.{' '}
-                <strong>Pending</strong> — being prepared, call to reserve.
-                Request a video walkthrough of any load before committing.
+                <strong>Available</strong> means currently open for wholesale purchase.
+                <strong> Pending</strong> means staging or confirmation is still in progress.
+                All loads are as-is and subject to confirmed terms before release.
               </p>
             </>
           )}
@@ -263,19 +292,20 @@ export default function Manifests() {
         <div className="container">
           <div className={styles.cta}>
             <div>
-              <h2>Do not see what you need?</h2>
-              <p>
-                Tell us what categories or load sizes you are looking for and we will reach out when matching inventory comes in.
-              </p>
+              <h2>Before you inquire, have this ready</h2>
+              <ul style={{ marginTop: '0.75rem', paddingLeft: '1rem' }}>
+                {site.legal.inquiryChecklist.map((item) => (
+                  <li key={item} style={{ marginTop: '0.5rem' }}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
             <div className={styles.ctaBtns}>
               <a href={`tel:${site.contact.phone}`} className="btn btn--primary btn--lg">
                 Call {site.contact.phoneDisplay}
               </a>
-              <a
-                href={`sms:${site.contact.phone}?body=${encodeURIComponent(site.contact.smsBody)}`}
-                className="btn btn--ghost btn--lg"
-              >
+              <a href={`sms:${site.contact.phone}?body=${encodeURIComponent(site.contact.smsBody)}`} className="btn btn--ghost btn--lg">
                 Text Us
               </a>
             </div>

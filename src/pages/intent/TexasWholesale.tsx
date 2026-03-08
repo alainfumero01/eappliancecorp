@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { site } from '../../content/siteContent'
 import PageSeo from '../../components/PageSeo'
 import Breadcrumb from '../../components/Breadcrumb'
@@ -9,9 +9,9 @@ export default function TexasWholesale() {
     <>
       <PageSeo
         title="Texas Wholesale Appliance Loads | E-Appliance Recycling Corp"
-        description="Wholesale appliance loads from our Texas distribution hub. Customer returns and scratch-and-dent inventory for resellers. Call to discuss current load availability and logistics."
+        description="Dealer-only appliance loads available from our Texas hub. Review pickup and freight expectations for regional buyers."
         canonical="/texas-wholesale-appliance-loads"
-        og={{ title: 'Texas Wholesale Appliance Loads', description: 'Customer returns and scratch-and-dent appliance loads from our Texas hub. 100% functional.', type: 'website' }}
+        og={{ title: 'Texas Wholesale Appliance Loads', description: 'As-is wholesale appliance loads from our Texas distribution hub.', type: 'website' }}
         twitter={{ card: 'summary', title: 'Texas Wholesale Appliance Loads' }}
       />
 
@@ -21,8 +21,8 @@ export default function TexasWholesale() {
           <span className="eyebrow">Texas distribution hub</span>
           <h1>Texas Wholesale Appliance Loads</h1>
           <p className={styles.lead}>
-            Our Texas hub stocks customer returns and scratch-and-dent appliances ready for wholesale buyers.
-            Every unit is 100% functional, cosmetic damage only. Buy by the load and move volume that works for your resale business.
+            Our Texas hub supports dealers buying load quantities for the South and Southwest. Inventory is wholesale,
+            as-is, and sold to qualified buyers only.
           </p>
         </div>
       </section>
@@ -30,21 +30,19 @@ export default function TexasWholesale() {
       <section className="section section--alt">
         <div className="container">
           <div className={styles.contentBlock}>
-            <span className="eyebrow">What Texas buyers get</span>
-            <h2>A direct source for wholesale appliance loads in Texas</h2>
+            <span className="eyebrow">Regional pickup and freight</span>
+            <h2>How Texas load buying works</h2>
             <p>
-              Resellers operating in Texas, the Southwest, and across the South benefit from proximity to our Texas distribution hub.
-              We stock a rotating mix of appliance categories — refrigerators, washers and dryers, ranges, dishwashers, and more —
-              sourced from customer returns and manufacturer scratch-and-dent programs.
+              Buyers use our Texas location when they need faster regional pickup, shorter freight lanes, or consistent
+              restock support. We discuss current category mix, approximate count, and condition profile before you commit.
             </p>
             <p>
-              Every load that leaves our Texas facility has been verified to operate. Cosmetic damage — dents, finish scratches,
-              door dings — is expected and priced in. Mechanical and electrical performance is not a question. We test units before
-              they go into a load, and we walk every load on video before you commit to buying it.
+              Inventory may include customer returns, scratch-and-dent, or mixed-grade loads. Cosmetic condition varies.
+              We treat each load as a wholesale lot, not a showroom lineup.
             </p>
             <p>
-              The Texas hub makes local pickup straightforward for buyers in the region, and we can work with freight carriers
-              for buyers who want loads shipped further. Call or text to discuss what is currently available and how the logistics work.
+              Final release is based on agreed terms, active inventory at confirmation, and pickup timing. If your team
+              or carrier needs dock details, we provide that during scheduling.
             </p>
           </div>
         </div>
@@ -52,23 +50,23 @@ export default function TexasWholesale() {
 
       <section className="section">
         <div className="container">
-          <h2>What to expect from a Texas load</h2>
+          <h2>What Texas buyers usually ask first</h2>
           <div className={styles.featureGrid}>
             <div className={styles.featureCard}>
-              <h3>Verified-functional units</h3>
-              <p>Every appliance in every load operates correctly before it leaves our facility. No broken units, ever.</p>
+              <h3>Current category mix</h3>
+              <p>Which categories are active this week and whether loads are mixed or category-focused.</p>
             </div>
             <div className={styles.featureCard}>
-              <h3>Video walkthrough</h3>
-              <p>We record a walkthrough of the load before you decide anything. You see the actual units, actual condition, actual count.</p>
+              <h3>Condition profile</h3>
+              <p>Expected grading spread, cosmetic variability, and any known concentration by category.</p>
             </div>
             <div className={styles.featureCard}>
-              <h3>Accurate load descriptions</h3>
-              <p>Category, quantity, condition range, and any notable issues are described honestly before purchase.</p>
+              <h3>Pickup window</h3>
+              <p>Available release windows and whether your team or carrier can meet the schedule.</p>
             </div>
             <div className={styles.featureCard}>
-              <h3>Load-based wholesale pricing</h3>
-              <p>Buy the whole load at a single price. No per-unit retail pricing. Built for resellers who move volume.</p>
+              <h3>Freight readiness</h3>
+              <p>Dock process, paperwork sequence, and what your carrier needs before dispatch.</p>
             </div>
           </div>
         </div>
@@ -78,18 +76,12 @@ export default function TexasWholesale() {
         <div className="container">
           <div className={styles.splitGrid}>
             <div>
-              <h2>Categories typically available from Texas</h2>
-              <p>Inventory changes with each incoming load. Current categories from the Texas hub often include:</p>
+              <h2>Typical condition expectations</h2>
               <ul className={styles.checkList}>
-                {['Refrigerators & Freezers (French door, top-freezer, side-by-side)',
-                  'Washers & Dryers (front-load and top-load)',
-                  'Ranges & Ovens (gas and electric)',
-                  'Dishwashers',
-                  'Microwaves',
-                  'Small appliances'].map(item => (
+                {site.legal.conditionExpectations.map((item) => (
                   <li key={item} className={styles.checkItem}>
                     <span className={styles.checkIcon} aria-hidden="true">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                     </span>
                     {item}
                   </li>
@@ -97,23 +89,21 @@ export default function TexasWholesale() {
               </ul>
             </div>
             <div>
-              <h2>How to buy a Texas load</h2>
-              <p>The process is straightforward and designed for experienced wholesale buyers.</p>
+              <h2>Before you inquire, have this ready</h2>
               <ul className={styles.checkList}>
-                {['Call or text to ask what is available from the Texas hub',
-                  'We describe current loads — category, quantity, condition',
-                  'We send you a video walkthrough of the load',
-                  'Agree on the load and price, then coordinate pickup from our Texas facility'].map(item => (
+                {site.legal.inquiryChecklist.map((item) => (
                   <li key={item} className={styles.checkItem}>
                     <span className={styles.checkIcon} aria-hidden="true">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                     </span>
                     {item}
                   </li>
                 ))}
               </ul>
               <div style={{ marginTop: '1.5rem' }}>
-                <Link to="/manifests" className="btn btn--outline">View Current Manifests</Link>
+                <Link to="/manifests" className="btn btn--outline">
+                  View Current Manifests
+                </Link>
               </div>
             </div>
           </div>
@@ -122,8 +112,8 @@ export default function TexasWholesale() {
 
       <section className="section">
         <div className="container">
-          <h2>Related wholesale load types</h2>
-          <p style={{ color: 'var(--color-text-muted)' }}>Explore other load categories available from our Texas and New Jersey hubs.</p>
+          <h2>Related wholesale pages</h2>
+          <p style={{ color: 'var(--color-text-muted)' }}>Compare hub options and load types before placing your next order.</p>
           <div className={styles.relatedLinks}>
             <Link to="/new-jersey-wholesale-appliance-loads" className="btn btn--outline">New Jersey Hub</Link>
             <Link to="/wholesale-refrigerator-loads" className="btn btn--outline">Refrigerator Loads</Link>
@@ -139,8 +129,8 @@ export default function TexasWholesale() {
         <div className="container">
           <div className={styles.ctaInner}>
             <div>
-              <h2>Interested in a Texas load?</h2>
-              <p>Call or text — we will tell you what is available and send a video before any commitment.</p>
+              <h2>Request Texas load availability</h2>
+              <p>Send your categories, target volume, and timeline. We will confirm what is active now.</p>
             </div>
             <div className={styles.ctaBtns}>
               <a href={`tel:${site.contact.phone}`} className="btn btn--primary btn--lg">Call {site.contact.phoneDisplay}</a>

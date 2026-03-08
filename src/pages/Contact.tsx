@@ -1,4 +1,4 @@
-import { site } from '../content/siteContent'
+﻿import { site } from '../content/siteContent'
 import PageSeo from '../components/PageSeo'
 import Breadcrumb from '../components/Breadcrumb'
 import styles from './Contact.module.css'
@@ -7,21 +7,25 @@ export default function Contact() {
   return (
     <>
       <PageSeo
-        title="Contact E-Appliance Recycling Corp | Wholesale Appliance Loads"
-        description="Call or text to inquire about wholesale appliance loads. Distribution hubs in Texas and New Jersey. We work exclusively with resellers and bulk buyers."
+        title="Contact E-Appliance Recycling Corp | Dealer-Only Appliance Loads"
+        description="Contact us with your business profile, category needs, and load volume. We serve qualified wholesale buyers only."
         canonical="/contact"
-        og={{ title: 'Contact E-Appliance Recycling Corp', description: 'Call or text to inquire about wholesale appliance loads. Texas and New Jersey hubs.', type: 'website' }}
+        og={{
+          title: 'Contact E-Appliance Recycling Corp',
+          description: 'Send your dealer requirements and get current load availability from our Texas and New Jersey hubs.',
+          type: 'website',
+        }}
         twitter={{ card: 'summary', title: 'Contact E-Appliance Recycling Corp' }}
       />
 
       <section className={styles.header}>
         <div className="container">
           <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Contact', path: '/contact' }]} />
-          <span className="eyebrow">Get in touch</span>
-          <h1>Contact us</h1>
+          <span className="eyebrow">Dealer inquiries</span>
+          <h1>Contact wholesale sales</h1>
           <p className={styles.lead}>
-            Call or text for the fastest response. We are available to discuss loads,
-            answer questions about inventory, and coordinate logistics.
+            Share your business details, category needs, and target volume. We reply with current load options,
+            condition expectations, and pickup guidance.
           </p>
         </div>
       </section>
@@ -35,13 +39,12 @@ export default function Contact() {
                 <a href={`tel:${site.contact.phone}`} className={styles.methodValue}>
                   {site.contact.phoneDisplay}
                 </a>
-                <p className={styles.methodNote}>Call to discuss a load, check availability, or ask any questions.</p>
+                <p className={styles.methodNote}>Fastest channel for active load availability and hub coordination.</p>
                 <div style={{ marginTop: '1rem', display: 'flex', gap: '0.625rem' }}>
-                  <a href={`tel:${site.contact.phone}`} className="btn btn--primary">Call Now</a>
-                  <a
-                    href={`sms:${site.contact.phone}?body=${encodeURIComponent(site.contact.smsBody)}`}
-                    className="btn btn--ghost"
-                  >
+                  <a href={`tel:${site.contact.phone}`} className="btn btn--primary">
+                    Call Now
+                  </a>
+                  <a href={`sms:${site.contact.phone}?body=${encodeURIComponent(site.contact.smsBody)}`} className="btn btn--ghost">
                     Send a Text
                   </a>
                 </div>
@@ -54,36 +57,54 @@ export default function Contact() {
                 <a href={`mailto:${site.contact.email}`} className={styles.methodValue}>
                   {site.contact.email}
                 </a>
-                <p className={styles.methodNote}>For written inquiries or sending load requirements in detail.</p>
+                <p className={styles.methodNote}>Use email for formal requirements, purchase history, and document exchange.</p>
                 <div style={{ marginTop: '1rem' }}>
-                  <a href={`mailto:${site.contact.email}`} className="btn btn--ghost">Send Email</a>
+                  <a href={`mailto:${site.contact.email}`} className="btn btn--ghost">
+                    Send Email
+                  </a>
                 </div>
               </div>
             </div>
 
             <div className={styles.contactSide}>
               <div className={styles.sideBlock}>
-                <p className={styles.sideLabel}>Hub locations</p>
-                {site.hubs.map((hub) => (
-                  <div key={hub} className={styles.hubRow}>
-                    <span className={styles.hubDot} aria-hidden="true" />
-                    <span>{hub}</span>
-                  </div>
-                ))}
+                <p className={styles.sideLabel}>Who we work with</p>
+                <ul style={{ margin: '0.5rem 0 0', paddingLeft: '1rem' }}>
+                  {site.legal.buyerQualification.map((item) => (
+                    <li key={item} style={{ marginTop: '0.5rem' }}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
               <hr className="divider" />
               <div className={styles.sideBlock}>
-                <p className={styles.sideLabel}>Who we work with</p>
-                <p className={styles.sideText}>
-                  Wholesale buyers and resellers purchasing by the load. We do not sell
-                  individual units to end consumers.
-                </p>
+                <p className={styles.sideLabel}>Who this is not for</p>
+                <ul style={{ margin: '0.5rem 0 0', paddingLeft: '1rem' }}>
+                  {site.legal.notFor.map((item) => (
+                    <li key={item} style={{ marginTop: '0.5rem' }}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <hr className="divider" />
+              <div className={styles.sideBlock}>
+                <p className={styles.sideLabel}>Before you inquire, have this ready</p>
+                <ul style={{ margin: '0.5rem 0 0', paddingLeft: '1rem' }}>
+                  {site.legal.inquiryChecklist.map((item) => (
+                    <li key={item} style={{ marginTop: '0.5rem' }}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
               <hr className="divider" />
               <div className={styles.placeholderNote}>
                 <p>
-                  <strong>Note:</strong> Contact details are placeholders. Update phone and email in{' '}
-                  <code>src/content/siteContent.ts</code> before going live.
+                  <strong>Note:</strong> Contact details are placeholders. Update phone and email in
+                  <code> src/content/siteContent.ts </code>
+                  before go-live.
                 </p>
               </div>
             </div>

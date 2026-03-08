@@ -1,32 +1,35 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { site } from '../content/siteContent'
 import MediaSlot from '../components/MediaSlot'
 import PageSeo from '../components/PageSeo'
 import Breadcrumb from '../components/Breadcrumb'
 import styles from './About.module.css'
 
-const STORY_IMAGE = null    // e.g. '/images/about-warehouse.jpg'
+const STORY_IMAGE = null // e.g. '/images/about-warehouse.jpg'
 
 export default function About() {
   return (
     <>
       <PageSeo
-        title="About E-Appliance Recycling Corp | 15+ Years in Wholesale Appliances"
-        description="E-Appliance Recycling Corp has been supplying resellers with wholesale appliance loads since the early 2000s. Two distribution hubs in Texas and New Jersey."
+        title="About E-Appliance Recycling Corp | Dealer-Only Appliance Loads"
+        description="Learn how E-Appliance Recycling Corp sources customer returns and scratch-and-dent inventory for wholesale buyers."
         canonical="/about"
-        og={{ title: 'About E-Appliance Recycling Corp', description: '15+ years supplying wholesale appliance loads to resellers. Texas and New Jersey distribution hubs.', type: 'website' }}
+        og={{
+          title: 'About E-Appliance Recycling Corp',
+          description: 'Operational overview of our wholesale appliance load process, sourcing model, and buyer requirements.',
+          type: 'website',
+        }}
         twitter={{ card: 'summary', title: 'About E-Appliance Recycling Corp' }}
       />
 
       <section className={styles.header}>
         <div className="container">
           <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'About', path: '/about' }]} />
-          <span className="eyebrow">About the company</span>
-          <h1>{site.yearsInBusiness} years of straight dealing</h1>
+          <span className="eyebrow">About the operation</span>
+          <h1>{site.yearsInBusiness}+ years in appliance load wholesale</h1>
           <p className={styles.lead}>
-            E-Appliance Recycling Corp has been supplying resellers with wholesale appliance loads since the early 2000s.
-            We run two distribution hubs — one in {site.hubs[0]}, one in {site.hubs[1]} — and work exclusively
-            with buyers who purchase by the load.
+            We source appliance inventory for dealers who buy by the load. Our focus is repeatable B2B supply,
+            clear terms, and practical communication around condition and pickup.
           </p>
         </div>
       </section>
@@ -35,34 +38,36 @@ export default function About() {
         <div className="container">
           <div className={styles.storyGrid}>
             <div className={styles.storyText}>
-              <h2>How the business works</h2>
+              <h2>How inventory enters our pipeline</h2>
               <p>
-                Our inventory comes from two sources: customer returns and scratch-and-dent units.
-                These are appliances that came back from consumers for cosmetic reasons, or that left
-                the factory with a dent or finish flaw. The internals are fine. They run, they heat,
-                they wash — they just do not look showroom-perfect.
+                Our loads are built from customer returns and scratch-and-dent inventory. That means condition ranges
+                vary by unit and by category. Some units are clean. Others show cosmetic wear from transit, handling,
+                or return movement.
               </p>
               <p>
-                That gap between retail and resale value is where our buyers make their margins.
-                We source it, verify it works, and sell it by the load to people who know how to
-                move it.
+                We discuss load-level condition openly before release. Depending on the load, that may include
+                category notes, counts, and walkthrough media. Buyers are expected to evaluate fit for their resale
+                channel before confirming purchase.
               </p>
               <p>
-                Before any load changes hands, we send you a video. You see what is in the load —
-                the actual units, actual condition, actual count. If something does not look right to
-                you, you say so before you buy, not after.
+                We do not operate as a consumer showroom. This is a dealer-only supply model built for buyers who
+                understand turns, grading variability, and wholesale as-is terms.
               </p>
               <div style={{ marginTop: '1.5rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                <Link to="/manifests" className="btn btn--outline">View Current Loads</Link>
-                <Link to="/contact" className="btn btn--ghost">Get in Touch</Link>
+                <Link to="/manifests" className="btn btn--outline">
+                  Review Current Manifests
+                </Link>
+                <Link to="/contact" className="btn btn--ghost">
+                  Send Buyer Details
+                </Link>
               </div>
             </div>
             <div className={styles.storyAside}>
               <MediaSlot
                 src={STORY_IMAGE}
                 type="image"
-                alt="E-Appliance Recycling Corp warehouse or team photo"
-                label="About Photo — warehouse, team, or load image. Recommended 800x600, JPG or WebP."
+                alt="E-Appliance Recycling Corp warehouse or load staging"
+                label="About photo - warehouse, staging area, or outbound load"
                 aspectRatio="4/3"
               />
               <div className={styles.asideBlock} style={{ marginTop: '1.25rem' }}>
@@ -80,10 +85,7 @@ export default function About() {
                 ))}
               </div>
               <hr className="divider" />
-              <p className={styles.asideNote}>
-                We do not sell to end consumers. Our pricing, load sizes, and logistics are
-                set up for wholesale buyers.
-              </p>
+              <p className={styles.asideNote}>{site.legal.asIsNotice}</p>
             </div>
           </div>
         </div>
@@ -93,40 +95,27 @@ export default function About() {
         <div className="container">
           <div className={styles.valuesRow}>
             <div className={styles.valuesLeft}>
-              <h2>What you can count on</h2>
+              <h2>Operational standards</h2>
               <p>
-                The same principles that built this business are still how we operate. None of this
-                is complicated — it is just consistent.
+                Our buyers stay with us because communication is practical. We focus on what matters for purchasing and pickup.
               </p>
             </div>
             <div className={styles.valuesList}>
               <div className={styles.valueItem}>
-                <h3>Accurate descriptions</h3>
-                <p>
-                  Every load is described as-is. Category, approximate count, condition range — no
-                  upselling, no vague language. If there is something off about a load, we say it.
-                </p>
+                <h3>Condition expectations</h3>
+                <p>We set clear expectations on grade and variability at load level before confirmation.</p>
               </div>
               <div className={styles.valueItem}>
-                <h3>Video before purchase</h3>
-                <p>
-                  We record and send a walkthrough of each load before you are asked to decide anything.
-                  You are not buying a description — you are buying what you saw.
-                </p>
+                <h3>Terms before release</h3>
+                <p>Price, payment timing, and pickup window are confirmed before inventory is released.</p>
               </div>
               <div className={styles.valueItem}>
-                <h3>Functional-only inventory</h3>
-                <p>
-                  We do not sell broken appliances. Cosmetic damage is expected and priced in. Operational
-                  problems are not. If it does not work, it does not go in a load.
-                </p>
+                <h3>Dealer qualification</h3>
+                <p>We work with wholesale buyers and resellers, not end-consumer one-off purchases.</p>
               </div>
               <div className={styles.valueItem}>
-                <h3>Straightforward terms</h3>
-                <p>
-                  Wholesale pricing, load-based sales, pickup from our TX or NJ hubs. No surprises
-                  in the terms, no add-ons after the fact.
-                </p>
+                <h3>Direct communication</h3>
+                <p>Buyers reach us directly by call or text for current load availability and logistics coordination.</p>
               </div>
             </div>
           </div>
@@ -137,15 +126,15 @@ export default function About() {
         <div className="container">
           <div className={styles.cta}>
             <div>
-              <h2>Want to see a current load?</h2>
-              <p>Call or text — we will walk you through what is available right now.</p>
+              <h2>Need current load availability?</h2>
+              <p>Send your category and volume requirements and we will respond with what is active now.</p>
             </div>
             <div className={styles.ctaBtns}>
               <a href={`tel:${site.contact.phone}`} className="btn btn--primary btn--lg">
                 Call {site.contact.phoneDisplay}
               </a>
-              <Link to="/manifests" className="btn btn--ghost btn--lg">
-                Browse Manifests
+              <Link to="/contact" className="btn btn--ghost btn--lg">
+                Contact Page
               </Link>
             </div>
           </div>

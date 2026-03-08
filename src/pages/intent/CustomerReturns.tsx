@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { site } from '../../content/siteContent'
 import PageSeo from '../../components/PageSeo'
 import Breadcrumb from '../../components/Breadcrumb'
@@ -9,9 +9,9 @@ export default function CustomerReturns() {
     <>
       <PageSeo
         title="Customer Return Appliances Wholesale | E-Appliance Recycling Corp"
-        description="Buy customer return appliances by the load. 100% functional units with cosmetic imperfections only. Wholesale pricing for resellers from Texas and New Jersey distribution hubs."
+        description="Dealer-only customer return appliance loads sold as-is. Learn expected condition ranges and buying workflow."
         canonical="/customer-returns-appliances"
-        og={{ title: 'Customer Return Appliances Wholesale', description: '100% functional customer return appliances. Wholesale loads for resellers.', type: 'website' }}
+        og={{ title: 'Customer Return Appliances Wholesale', description: 'As-is wholesale customer return appliance loads for qualified resellers.', type: 'website' }}
         twitter={{ card: 'summary', title: 'Customer Return Appliances Wholesale' }}
       />
 
@@ -19,10 +19,10 @@ export default function CustomerReturns() {
         <div className="container">
           <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Customer Returns Appliances', path: '/customer-returns-appliances' }]} />
           <span className="eyebrow">Wholesale customer returns</span>
-          <h1>Customer Return Appliances — Wholesale Loads</h1>
+          <h1>Customer Return Appliances - Wholesale Loads</h1>
           <p className={styles.lead}>
-            Customer return appliances represent one of the most consistent sources of functional, resalable inventory
-            in the appliance market. We sell them by the load, exclusively to wholesale buyers.
+            Customer return inventory is a core supply source for resellers. We sell these loads to qualified buyers
+            under as-is wholesale terms from Texas and New Jersey.
           </p>
         </div>
       </section>
@@ -30,54 +30,36 @@ export default function CustomerReturns() {
       <section className="section section--alt">
         <div className="container">
           <div className={styles.contentBlock}>
-            <span className="eyebrow">What customer returns are</span>
-            <h2>Why customer return appliances are valuable to resellers</h2>
+            <span className="eyebrow">What customer returns means</span>
+            <h2>How these loads differ from other wholesale inventory</h2>
             <p>
-              Customer return appliances are units that were purchased by consumers and returned — typically within the
-              retailer return window — for reasons that have nothing to do with whether the appliance works. A consumer
-              might return a refrigerator because it was too large for their kitchen, or a washer because the color
-              did not match their laundry room. The unit works perfectly. It is just back in the supply chain.
+              Customer returns are units that moved through retail and came back during return windows. Return reasons
+              often include size mismatch, finish preference, or delivery handling. That does not guarantee perfect
+              appearance, and it does not mean every unit is equivalent in grade.
             </p>
             <p>
-              Some customer returns have no visible damage at all. Others have minor cosmetic issues from transit
-              or handling — a small dent on the side panel, a scuff on the door edge. In every case, we verify the
-              appliance operates correctly before it goes into a load. If it does not work, it does not go in.
+              For wholesale buyers, this category can provide consistent volume with practical resale potential. The key
+              is understanding that condition varies across units and must be evaluated at load level.
             </p>
             <p>
-              The margin opportunity for resellers is significant. Consumer return appliances retail at a fraction
-              of their original price — the cosmetic factor, the "open box" status, and the return history all
-              suppress retail price. But the performance is identical to a new unit. That gap is where resellers
-              who know the market make money.
+              We review current load makeup, category mix, and available media before confirmation. Buyers then decide
+              whether the load profile matches their channel and turn strategy.
             </p>
-            <p>
-              We sell customer return loads from our Texas and New Jersey distribution hubs. Loads vary by category —
-              refrigerators, washers and dryers, ranges, dishwashers, and more — depending on what has come in recently.
-              Call or text to ask about current availability.
-            </p>
+            <p>{site.legal.asIsNotice}</p>
           </div>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <h2>What we guarantee on every customer return load</h2>
+          <h2>Typical condition expectations</h2>
           <div className={styles.featureGrid}>
-            <div className={styles.featureCard}>
-              <h3>100% functional</h3>
-              <p>Every unit in the load operates correctly. We verify before the load ships. No exceptions.</p>
-            </div>
-            <div className={styles.featureCard}>
-              <h3>Honest condition descriptions</h3>
-              <p>Cosmetic issues are described accurately — no vague language, no surprises when the load arrives.</p>
-            </div>
-            <div className={styles.featureCard}>
-              <h3>Video before you buy</h3>
-              <p>We record a walkthrough of the load and send it before you make any decision. You see what you are buying.</p>
-            </div>
-            <div className={styles.featureCard}>
-              <h3>Wholesale loads only</h3>
-              <p>We sell by the load to wholesale buyers. Load sizes and pricing are designed for resellers, not consumers.</p>
-            </div>
+            {site.legal.conditionExpectations.map((item) => (
+              <div key={item} className={styles.featureCard}>
+                <h3>Buyer note</h3>
+                <p>{item}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -86,17 +68,12 @@ export default function CustomerReturns() {
         <div className="container">
           <div className={styles.splitGrid}>
             <div>
-              <h2>Customer return categories we carry</h2>
+              <h2>Who this is for</h2>
               <ul className={styles.checkList}>
-                {['Refrigerators & Freezers',
-                  'Washers & Dryers',
-                  'Ranges & Ovens',
-                  'Dishwashers',
-                  'Microwaves',
-                  'Small appliances'].map(item => (
+                {site.legal.buyerQualification.map((item) => (
                   <li key={item} className={styles.checkItem}>
                     <span className={styles.checkIcon} aria-hidden="true">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                     </span>
                     {item}
                   </li>
@@ -104,15 +81,12 @@ export default function CustomerReturns() {
               </ul>
             </div>
             <div>
-              <h2>Distribution hubs</h2>
-              <p>Customer return loads are available from both our Texas and New Jersey distribution hubs.</p>
+              <h2>Before you inquire, have this ready</h2>
               <ul className={styles.checkList}>
-                {['Texas hub — serving the South and Southwest',
-                  'New Jersey hub — serving the Northeast and East Coast',
-                  'Buyer pickup at hub, or coordinate freight'].map(item => (
+                {site.legal.inquiryChecklist.map((item) => (
                   <li key={item} className={styles.checkItem}>
                     <span className={styles.checkIcon} aria-hidden="true">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                     </span>
                     {item}
                   </li>
@@ -120,7 +94,7 @@ export default function CustomerReturns() {
               </ul>
               <div style={{ marginTop: '1.5rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                 <Link to="/manifests" className="btn btn--outline">View Load Manifests</Link>
-                <Link to="/contact" className="btn btn--ghost">Get in Touch</Link>
+                <Link to="/contact" className="btn btn--ghost">Contact Sales</Link>
               </div>
             </div>
           </div>
@@ -145,8 +119,8 @@ export default function CustomerReturns() {
         <div className="container">
           <div className={styles.ctaInner}>
             <div>
-              <h2>Looking for customer return appliance loads?</h2>
-              <p>Call or text to find out what is available. We will send a video before any commitment.</p>
+              <h2>Request customer return load options</h2>
+              <p>Call or text your requirements and we will return active load choices by hub.</p>
             </div>
             <div className={styles.ctaBtns}>
               <a href={`tel:${site.contact.phone}`} className="btn btn--primary btn--lg">Call {site.contact.phoneDisplay}</a>

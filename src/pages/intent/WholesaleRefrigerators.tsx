@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { site } from '../../content/siteContent'
 import PageSeo from '../../components/PageSeo'
 import Breadcrumb from '../../components/Breadcrumb'
@@ -8,10 +8,10 @@ export default function WholesaleRefrigerators() {
   return (
     <>
       <PageSeo
-        title="Wholesale Refrigerator Loads | French Door, Top-Freezer & More"
-        description="Wholesale refrigerator loads including French door, side-by-side, and top-freezer models. Customer returns and scratch-and-dent, 100% functional. Buy by the load from TX and NJ hubs."
+        title="Wholesale Refrigerator Loads | Dealer-Only Inventory"
+        description="Wholesale refrigerator loads with mixed configurations and condition ranges. Sold as-is to qualified appliance buyers."
         canonical="/wholesale-refrigerator-loads"
-        og={{ title: 'Wholesale Refrigerator Loads', description: 'French door, side-by-side, and top-freezer refrigerators. 100% functional customer returns and scratch-and-dent.', type: 'website' }}
+        og={{ title: 'Wholesale Refrigerator Loads', description: 'Dealer-only refrigerator loads with practical condition and pickup guidance.', type: 'website' }}
         twitter={{ card: 'summary', title: 'Wholesale Refrigerator Loads' }}
       />
 
@@ -19,10 +19,10 @@ export default function WholesaleRefrigerators() {
         <div className="container">
           <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Wholesale Refrigerator Loads', path: '/wholesale-refrigerator-loads' }]} />
           <span className="eyebrow">Wholesale refrigerator inventory</span>
-          <h1>Wholesale Refrigerator Loads — French Door, Top-Freezer &amp; More</h1>
+          <h1>Wholesale Refrigerator Loads</h1>
           <p className={styles.lead}>
-            Wholesale refrigerator loads from customer returns and scratch-and-dent programs. Every unit is verified
-            to operate correctly. Cosmetic imperfections only. Available from our Texas and New Jersey distribution hubs.
+            Refrigerator loads are one of the most active appliance categories. Buyers use these loads to restock
+            outlet and dealer channels with mixed configurations at wholesale pricing.
           </p>
         </div>
       </section>
@@ -30,30 +30,19 @@ export default function WholesaleRefrigerators() {
       <section className="section section--alt">
         <div className="container">
           <div className={styles.contentBlock}>
-            <span className="eyebrow">Refrigerator wholesale sourcing</span>
-            <h2>Buying wholesale refrigerator loads for resale</h2>
+            <span className="eyebrow">Category-specific buying notes</span>
+            <h2>What to evaluate on refrigerator loads</h2>
             <p>
-              Refrigerators are one of the most consistently available appliance categories in the customer return
-              and scratch-and-dent market. Consumers return refrigerators at a higher rate than almost any other
-              major appliance — often because of size issues, color mismatches, or delivery damage that affects
-              appearance but not function.
+              Refrigerator lots can include French door, side-by-side, top-freezer, and bottom-freezer models.
+              The critical review points are configuration mix, cosmetic grade concentration, and turn-fit in your market.
             </p>
             <p>
-              The refrigerators in our wholesale loads come from two primary sources. Customer returns are units
-              that went through the retail purchase cycle and came back — typically within 30 days, typically
-              for cosmetic or size reasons. Scratch-and-dent units are refrigerators that left the factory or
-              warehouse with visible surface damage: a dent on a door panel, a scratch on a side wall, a scuff
-              on the top surface.
+              This category often carries visible panel wear from handling or returns. Buyers should assume mixed
+              cosmetic grading unless a lot is explicitly filtered. Inventory is sold as-is under wholesale terms.
             </p>
             <p>
-              In both cases, the refrigerator works. The compressor runs, the temperature holds, the ice maker
-              functions, the water dispenser operates. We test units before they go into loads and guarantee
-              that every refrigerator in the load is fully functional at the time of sale.
-            </p>
-            <p>
-              Loads mix refrigerator configurations based on what is available. A typical load might include
-              French door models, top-freezer units, and side-by-side configurations. We describe the mix
-              in advance and walk the load on video before you make any purchase decision.
+              If your channel requires a certain configuration ratio, request that upfront so we can confirm whether
+              active loads align before you move forward.
             </p>
           </div>
         </div>
@@ -61,23 +50,23 @@ export default function WholesaleRefrigerators() {
 
       <section className="section">
         <div className="container">
-          <h2>Refrigerator configurations in our loads</h2>
+          <h2>Configuration mix you may see</h2>
           <div className={styles.featureGrid}>
             <div className={styles.featureCard}>
               <h3>French door</h3>
-              <p>High-demand configuration from major brands. Customer returns are common due to size and delivery issues.</p>
+              <p>High-demand resale category with variable cosmetic grade by unit.</p>
             </div>
             <div className={styles.featureCard}>
               <h3>Top-freezer</h3>
-              <p>The most widely resold configuration. Strong demand from entry-level buyers and rental market.</p>
+              <p>Common in value channels and rental-focused resale programs.</p>
             </div>
             <div className={styles.featureCard}>
               <h3>Side-by-side</h3>
-              <p>Popular in customer return loads. Often returned for measurement fit issues — unit works perfectly.</p>
+              <p>Frequently present in mixed loads with broad condition spread.</p>
             </div>
             <div className={styles.featureCard}>
               <h3>Bottom-freezer</h3>
-              <p>Available in select loads. Mix varies by incoming inventory from our Texas and New Jersey hubs.</p>
+              <p>Appears in select lots depending on current inbound inventory.</p>
             </div>
           </div>
         </div>
@@ -87,16 +76,12 @@ export default function WholesaleRefrigerators() {
         <div className="container">
           <div className={styles.splitGrid}>
             <div>
-              <h2>What comes with every refrigerator load</h2>
+              <h2>Who this is for</h2>
               <ul className={styles.checkList}>
-                {['Every unit verified operational before load ships',
-                  'Accurate count and configuration description',
-                  'Condition notes on cosmetic damage per unit',
-                  'Video walkthrough of the full load',
-                  'No broken or non-functional units — ever'].map(item => (
+                {site.legal.buyerQualification.map((item) => (
                   <li key={item} className={styles.checkItem}>
                     <span className={styles.checkIcon} aria-hidden="true">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                     </span>
                     {item}
                   </li>
@@ -104,8 +89,17 @@ export default function WholesaleRefrigerators() {
               </ul>
             </div>
             <div>
-              <h2>Available from both hubs</h2>
-              <p>Refrigerator loads are available from our Texas and New Jersey facilities. Call to ask what configurations are currently in stock at each location.</p>
+              <h2>Before you inquire, have this ready</h2>
+              <ul className={styles.checkList}>
+                {site.legal.inquiryChecklist.map((item) => (
+                  <li key={item} className={styles.checkItem}>
+                    <span className={styles.checkIcon} aria-hidden="true">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
               <div style={{ marginTop: '1.5rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                 <Link to="/texas-wholesale-appliance-loads" className="btn btn--outline">Texas Hub</Link>
                 <Link to="/new-jersey-wholesale-appliance-loads" className="btn btn--outline">NJ Hub</Link>
@@ -132,8 +126,8 @@ export default function WholesaleRefrigerators() {
         <div className="container">
           <div className={styles.ctaInner}>
             <div>
-              <h2>Looking for wholesale refrigerator loads?</h2>
-              <p>Call or text — we will describe current availability and send a walkthrough video.</p>
+              <h2>Need active refrigerator loads?</h2>
+              <p>Send your preferred configuration mix and target volume. We will return current options.</p>
             </div>
             <div className={styles.ctaBtns}>
               <a href={`tel:${site.contact.phone}`} className="btn btn--primary btn--lg">Call {site.contact.phoneDisplay}</a>
