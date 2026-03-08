@@ -3,10 +3,54 @@ import { site } from '../content/siteContent'
 import MediaSlot from '../components/MediaSlot'
 import styles from './Home.module.css'
 
-// ── MEDIA — swap null for a real URL to activate each slot ──────────────────
-const HERO_IMAGE = '/images/hero-banner.svg'
-const SHOWCASE_VIDEO = null       // e.g. 'https://www.youtube.com/embed/YOUR_ID'
-// ────────────────────────────────────────────────────────────────────────────
+// ── Set a real URL to activate the video section ─────────────────────────────
+const SHOWCASE_VIDEO = null  // e.g. 'https://www.youtube.com/embed/YOUR_ID'
+// ─────────────────────────────────────────────────────────────────────────────
+
+const guarantees = [
+  {
+    stat: '15+',
+    label: 'Years supplying resellers',
+    desc: 'We have been in this business since the early 2000s. Repeat buyers are the model — and they keep coming back.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    ),
+  },
+  {
+    stat: '100%',
+    label: 'Functional units, guaranteed',
+    desc: 'Every appliance in every load is verified to operate before it goes out. Cosmetic imperfections only — no broken units.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    ),
+  },
+  {
+    stat: 'Video',
+    label: 'Walkthrough before you buy',
+    desc: 'We record and send a walkthrough of every load before you decide anything. You see the actual units, actual condition, actual count.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polygon points="23 7 16 12 23 17 23 7"/>
+        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+      </svg>
+    ),
+  },
+  {
+    stat: 'TX · NJ',
+    label: 'Two distribution hubs',
+    desc: 'Hub locations in Texas and New Jersey to coordinate wholesale pickups for buyers across the country.',
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </svg>
+    ),
+  },
+]
 
 export default function Home() {
   return (
@@ -16,7 +60,7 @@ export default function Home() {
         <div className="container">
           <div className={styles.heroInner}>
             <div className={styles.heroText}>
-              <h1>
+              <h1 className={styles.heroTitle}>
                 Wholesale Appliance Loads<br />
                 for Resellers
               </h1>
@@ -26,12 +70,12 @@ export default function Home() {
                 before you commit. Hubs in {site.hubs[0]} and {site.hubs[1]}.
               </p>
               <div className={styles.heroCtas}>
-                <a href={`tel:${site.contact.phone}`} className="btn btn--primary btn--lg">
+                <a href={`tel:${site.contact.phone}`} className={`btn btn--primary btn--lg ${styles.heroCtaPrimary}`}>
                   Call to Discuss a Load
                 </a>
                 <a
                   href={`sms:${site.contact.phone}?body=${encodeURIComponent(site.contact.smsBody)}`}
-                  className="btn btn--ghost btn--lg"
+                  className={`btn btn--lg ${styles.heroCtaGhost}`}
                 >
                   Text Us
                 </a>
@@ -51,26 +95,28 @@ export default function Home() {
                 <p className={styles.sidebarLabel}>Functional units</p>
               </div>
               <div className={styles.sidebarNote}>
-                Wholesale buyers only. We don't sell to end consumers.
+                Wholesale buyers only — we don't sell to end consumers.
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── HERO IMAGE ── */}
-      <div className={styles.heroImageWrap}>
+      {/* ── GUARANTEE CARDS ── */}
+      <section className={styles.guarantees}>
         <div className="container">
-          <MediaSlot
-            src={HERO_IMAGE}
-            type="image"
-            alt="E-Appliance Recycling Corp — warehouse or load photo"
-            label="Hero / Banner Image — recommended 1600×700, JPG or WebP"
-            aspectRatio="21/9"
-            className={styles.heroImage}
-          />
+          <div className={styles.guaranteeGrid}>
+            {guarantees.map((g) => (
+              <div key={g.label} className={styles.guaranteeCard}>
+                <div className={styles.guaranteeIcon}>{g.icon}</div>
+                <p className={styles.guaranteeStat}>{g.stat}</p>
+                <p className={styles.guaranteeLabel}>{g.label}</p>
+                <p className={styles.guaranteeDesc}>{g.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* ── WHAT MAKES US DIFFERENT ── */}
       <section className="section section--alt">
@@ -150,29 +196,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FEATURED VIDEO ── */}
-      <section className="section">
-        <div className="container">
-          <div className={styles.videoSection}>
-            <div>
-              <span className="eyebrow">See it for yourself</span>
-              <h2>What a load walkthrough looks like</h2>
-              <p style={{ color: 'var(--color-text-muted)', marginTop: '0.75rem' }}>
-                Every buyer gets a video like this before committing to a load. Add your own
-                walkthrough clip here to show buyers exactly what to expect.
-              </p>
+      {/* ── FEATURED VIDEO (only shown when a URL is set) ── */}
+      {SHOWCASE_VIDEO && (
+        <section className="section">
+          <div className="container">
+            <div className={styles.videoSection}>
+              <div>
+                <span className="eyebrow">See it for yourself</span>
+                <h2>What a load walkthrough looks like</h2>
+                <p style={{ color: 'var(--color-text-muted)', marginTop: '0.75rem' }}>
+                  Every buyer gets a video like this before committing to a load.
+                </p>
+              </div>
+              <MediaSlot
+                src={SHOWCASE_VIDEO}
+                type="video"
+                alt="Sample load walkthrough video"
+                aspectRatio="16/9"
+                className={styles.showcaseVideo}
+              />
             </div>
-            <MediaSlot
-              src={SHOWCASE_VIDEO}
-              type="video"
-              alt="Sample load walkthrough video"
-              label="Featured Video — paste a YouTube embed URL or upload an MP4"
-              aspectRatio="16/9"
-              className={styles.showcaseVideo}
-            />
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ── BOTTOM CTA ── */}
       <section className={styles.ctaBand}>
