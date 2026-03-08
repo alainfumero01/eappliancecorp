@@ -20,45 +20,19 @@
   text-decoration: none;
 }
 
-/* Clip wrapper — hides the large white padding around the wordmark.
-   margin-top centers the text: -(image_text_center - wrapper_center)
-   Image is 1333×1000; text spans ~28–70% height, center at ~49%. */
-.logoWrap {
-  width: 130px;
-  height: 42px;
-  overflow: hidden;
-  position: relative;
-  flex-shrink: 0;
-}
-
+/* SVG logo — no clip tricks needed, scales cleanly */
 .logoImg {
-  width: 200px;            /* 200×150px displayed */
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: -52px;       /* text center 73px, wrapper center 21px → -52 */
+  height: 36px;
+  width: auto;
   display: block;
 }
 
 @media (min-width: 480px) {
-  .logoWrap { width: 160px; height: 50px; }
-  .logoImg  { width: 246px; margin-top: -65px; } /* 184px tall, center 90px */
+  .logoImg { height: 42px; }
 }
 
 @media (min-width: 768px) {
-  .logoWrap { width: 190px; height: 56px; }
-  .logoImg  { width: 290px; margin-top: -79px; } /* 218px tall, center 107px */
-}
-
-.logoText {
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  color: var(--color-navy);
-}
-
-.logoAccent {
-  color: var(--color-accent);
+  .logoImg { height: 46px; }
 }
 
 /* ── DESKTOP LINKS ── */

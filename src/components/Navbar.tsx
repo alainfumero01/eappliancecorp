@@ -19,22 +19,11 @@ export default function Navbar() {
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
 
           <Link to="/" className={styles.logoLink} onClick={() => setOpen(false)}>
-            <div className={styles.logoWrap}>
-              <img
-                src="/images/logo.png"
-                alt={site.name}
-                className={styles.logoImg}
-                onError={(e) => {
-                  const wrap = (e.currentTarget as HTMLImageElement).parentElement!
-                  wrap.style.display = 'none';
-                  (wrap.nextElementSibling as HTMLElement).style.display = 'block'
-                }}
-              />
-            </div>
-            {/* Text fallback if logo.png is missing */}
-            <span className={styles.logoText} style={{ display: 'none' }}>
-              <span className={styles.logoAccent}>E-Appliances</span> Corp.
-            </span>
+            <img
+              src="/images/logo.svg"
+              alt={site.name}
+              className={styles.logoImg}
+            />
           </Link>
 
           <ul className={styles.links}>

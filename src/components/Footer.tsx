@@ -10,7 +10,11 @@ export default function Footer() {
       <div className="container">
         <div className={styles.inner}>
           <div className={styles.brand}>
-            <span className={styles.brandName}>E-Appliances Corp.</span>
+            <img
+              src="/images/logo.svg"
+              alt={site.name}
+              className={styles.logoImg}
+            />
             <p className={styles.tagline}>{site.tagline}</p>
             <p className={styles.hubs}>{site.hubs.join(' · ')}</p>
           </div>
