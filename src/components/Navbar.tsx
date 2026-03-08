@@ -23,6 +23,9 @@ export default function Navbar() {
               src="/images/logo.svg"
               alt={site.name}
               className={styles.logoImg}
+              width="160"
+              height="48"
+              fetchPriority="high"
             />
           </Link>
 

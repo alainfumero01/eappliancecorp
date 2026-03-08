@@ -1,1 +1,29 @@
-{"name":"eappliances","private":true,"version":"0.0.0","type":"module","scripts":{"dev":"vite","build":"tsc -b && vite build","lint":"eslint .","preview":"vite preview"},"dependencies":{"react":"^19.0.0","react-dom":"^19.0.0","react-router-dom":"^7.5.0"},"devDependencies":{"@types/react":"^19.0.0","@types/react-dom":"^19.0.0","@vitejs/plugin-react":"^4.3.4","typescript":"~5.8.3","vite":"^6.3.1"}}
+{
+  "name": "eappliances",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build:client && npm run build:ssr && npm run prerender && npm run generate:sitemap",
+    "build:client": "tsc -b && vite build",
+    "build:ssr": "vite build --ssr src/entry-server.tsx",
+    "prerender": "node scripts/prerender.mjs",
+    "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-helmet-async": "^3.0.0",
+    "react-router-dom": "^7.5.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.1"
+  }
+}

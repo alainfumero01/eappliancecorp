@@ -1,15 +1,26 @@
 import { site } from '../content/siteContent'
+import PageSeo from '../components/PageSeo'
+import Breadcrumb from '../components/Breadcrumb'
 import styles from './Contact.module.css'
 
 export default function Contact() {
   return (
     <>
+      <PageSeo
+        title="Contact E-Appliance Recycling Corp | Wholesale Appliance Loads"
+        description="Call or text to inquire about wholesale appliance loads. Distribution hubs in Texas and New Jersey. We work exclusively with resellers and bulk buyers."
+        canonical="/contact"
+        og={{ title: 'Contact E-Appliance Recycling Corp', description: 'Call or text to inquire about wholesale appliance loads. Texas and New Jersey hubs.', type: 'website' }}
+        twitter={{ card: 'summary', title: 'Contact E-Appliance Recycling Corp' }}
+      />
+
       <section className={styles.header}>
         <div className="container">
+          <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Contact', path: '/contact' }]} />
           <span className="eyebrow">Get in touch</span>
           <h1>Contact us</h1>
           <p className={styles.lead}>
-            Call or text for the fastest response. We're available to discuss loads,
+            Call or text for the fastest response. We are available to discuss loads,
             answer questions about inventory, and coordinate logistics.
           </p>
         </div>
@@ -18,7 +29,6 @@ export default function Contact() {
       <section className="section section--alt">
         <div className="container">
           <div className={styles.contactGrid}>
-
             <div className={styles.contactMain}>
               <div className={styles.methodBlock}>
                 <p className={styles.methodLabel}>Phone</p>
@@ -65,7 +75,7 @@ export default function Contact() {
               <div className={styles.sideBlock}>
                 <p className={styles.sideLabel}>Who we work with</p>
                 <p className={styles.sideText}>
-                  Wholesale buyers and resellers purchasing by the load. We don't sell
+                  Wholesale buyers and resellers purchasing by the load. We do not sell
                   individual units to end consumers.
                 </p>
               </div>
@@ -77,7 +87,6 @@ export default function Contact() {
                 </p>
               </div>
             </div>
-
           </div>
         </div>
       </section>

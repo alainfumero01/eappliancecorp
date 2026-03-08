@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import { site } from '../content/siteContent'
 import MediaSlot from '../components/MediaSlot'
+import PageSeo from '../components/PageSeo'
+import { CANONICAL_DOMAIN } from '../seo/seoRoutes'
 import styles from './Home.module.css'
 
-// ── Set a real URL to activate the video section ─────────────────────────────
+// Set a real URL to activate the video section
 const SHOWCASE_VIDEO = null  // e.g. 'https://www.youtube.com/embed/YOUR_ID'
-// ─────────────────────────────────────────────────────────────────────────────
 
 const guarantees = [
   {
@@ -55,7 +56,19 @@ const guarantees = [
 export default function Home() {
   return (
     <>
-      {/* ── HERO ── */}
+      <PageSeo
+        title="Wholesale Appliance Loads for Resellers | E-Appliance Recycling Corp"
+        description="Buy wholesale appliance loads direct from the source. Customer returns and scratch-and-dent units, 100% functional. Distribution hubs in Texas and New Jersey. 15+ years serving resellers."
+        canonical="/"
+        og={{
+          title: 'Wholesale Appliance Loads for Resellers | E-Appliance Recycling Corp',
+          description: 'Customer returns and scratch-and-dent appliances, 100% functional. Buy by the load from our Texas and New Jersey distribution hubs.',
+          type: 'website',
+          image: `${CANONICAL_DOMAIN}/images/logo.png`,
+        }}
+        twitter={{ card: 'summary_large_image', title: 'Wholesale Appliance Loads for Resellers' }}
+      />
+
       <section className={styles.hero}>
         <div className="container">
           <div className={styles.heroInner}>
@@ -65,7 +78,7 @@ export default function Home() {
                 for Resellers
               </h1>
               <p className={styles.heroSub}>
-                We've been sourcing customer returns and scratch-and-dent appliances for resellers
+                We have been sourcing customer returns and scratch-and-dent appliances for resellers
                 for {site.yearsInBusiness} years. Every unit is functional. Every load is walked on video
                 before you commit. Hubs in {site.hubs[0]} and {site.hubs[1]}.
               </p>
@@ -95,14 +108,13 @@ export default function Home() {
                 <p className={styles.sidebarLabel}>Functional units</p>
               </div>
               <div className={styles.sidebarNote}>
-                Wholesale buyers only — we don't sell to end consumers.
+                Wholesale buyers only — we do not sell to end consumers.
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── GUARANTEE CARDS ── */}
       <section className={styles.guarantees}>
         <div className="container">
           <div className={styles.guaranteeGrid}>
@@ -118,21 +130,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── WHAT MAKES US DIFFERENT ── */}
       <section className="section section--alt">
         <div className="container">
           <div className={styles.splitRow}>
             <div className={styles.splitLeft}>
               <h2>What keeps buyers coming back</h2>
               <p>
-                Repeat business is the whole model. We've kept the same buyers for years because
+                Repeat business is the whole model. We have kept the same buyers for years because
                 what you see in the video is exactly what shows up. The load description matches the load.
-                The units work. There's no negotiating after the fact because there's nothing to negotiate — it was
-                right the first time.
+                The units work.
               </p>
               <p style={{ marginTop: '1rem' }}>
-                Customer returns and scratch-and-dent means the cosmetics aren't perfect. The performance is.
-                That's the trade — and it's one that works for resellers who know how to move inventory.
+                Customer returns and scratch-and-dent means the cosmetics are not perfect. The performance is.
+                That is the trade — and it works for resellers who know how to move inventory.
               </p>
               <div style={{ marginTop: '1.75rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                 <Link to="/about" className="btn btn--outline">Our Story</Link>
@@ -156,7 +166,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CATEGORIES ── */}
       <section className="section">
         <div className="container">
           <div className={styles.catRow}>
@@ -164,10 +173,11 @@ export default function Home() {
               <span className="eyebrow">What we carry</span>
               <h2>Customer Returns &amp; Scratch-and-Dent</h2>
               <p style={{ color: 'var(--color-text-muted)', marginTop: '0.875rem' }}>
-                Inventory changes load by load. Call or text to ask about what's currently available.
+                Inventory changes load by load. Call or text to ask about what is currently available.
               </p>
-              <div style={{ marginTop: '1.5rem' }}>
+              <div style={{ marginTop: '1.5rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                 <Link to="/manifests" className="btn btn--outline">View Load Manifests</Link>
+                <Link to="/customer-returns-appliances" className="btn btn--ghost">About Customer Returns</Link>
               </div>
             </div>
             <ul className={styles.catList}>
@@ -179,7 +189,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── HOW IT WORKS ── */}
       <section className="section section--alt">
         <div className="container">
           <span className="eyebrow">The process</span>
@@ -196,7 +205,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FEATURED VIDEO (only shown when a URL is set) ── */}
       {SHOWCASE_VIDEO && (
         <section className="section">
           <div className="container">
@@ -220,15 +228,31 @@ export default function Home() {
         </section>
       )}
 
-      {/* ── BOTTOM CTA ── */}
+      <section className="section">
+        <div className="container">
+          <span className="eyebrow">Browse by load type</span>
+          <h2>Wholesale load categories</h2>
+          <p style={{ color: 'var(--color-text-muted)', marginTop: '0.875rem', marginBottom: '1.5rem' }}>
+            We carry a broad mix across all major appliance categories. Explore specific load types below.
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.625rem' }}>
+            <Link to="/wholesale-refrigerator-loads" className="btn btn--outline">Refrigerator Loads</Link>
+            <Link to="/wholesale-washer-dryer-loads" className="btn btn--outline">Washer &amp; Dryer Loads</Link>
+            <Link to="/customer-returns-appliances" className="btn btn--outline">Customer Returns</Link>
+            <Link to="/scratch-and-dent-appliances" className="btn btn--outline">Scratch &amp; Dent</Link>
+            <Link to="/appliance-liquidation-loads" className="btn btn--outline">Liquidation Loads</Link>
+            <Link to="/texas-wholesale-appliance-loads" className="btn btn--outline">Texas Hub</Link>
+            <Link to="/new-jersey-wholesale-appliance-loads" className="btn btn--outline">New Jersey Hub</Link>
+          </div>
+        </div>
+      </section>
+
       <section className={styles.ctaBand}>
         <div className="container">
           <div className={styles.ctaInner}>
             <div>
-              <h2>Ready to see what's available?</h2>
-              <p>
-                Call or text — we'll send you a video of current inventory. No commitment, no pressure.
-              </p>
+              <h2>Ready to see what is available?</h2>
+              <p>Call or text — we will send you a video of current inventory. No commitment, no pressure.</p>
             </div>
             <div className={styles.ctaButtons}>
               <a href={`tel:${site.contact.phone}`} className="btn btn--primary btn--lg">

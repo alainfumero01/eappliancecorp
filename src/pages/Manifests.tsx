@@ -1,11 +1,11 @@
 import { site } from '../content/siteContent'
 import MediaSlot from '../components/MediaSlot'
+import PageSeo from '../components/PageSeo'
+import Breadcrumb from '../components/Breadcrumb'
+import { CANONICAL_DOMAIN } from '../seo/seoRoutes'
 import styles from './Manifests.module.css'
 
-// ── Add / edit loads here as inventory changes ───────────────────────────────
-// thumbnailUrl : image shown in the table row  (e.g. '/images/mf-001-thumb.jpg')
-// videoUrl     : YouTube embed URL or direct MP4  (e.g. 'https://www.youtube.com/embed/ID')
-// file         : PDF manifest link  (e.g. '/manifests/MF-2025-001.pdf')
+// Add / edit loads here as inventory changes
 const manifests = [
   {
     id: 'MF-2025-001',
@@ -44,7 +44,6 @@ const manifests = [
     file: null as string | null,
   },
 ]
-// ────────────────────────────────────────────────────────────────────────────
 
 const statusColor: Record<string, string> = {
   Available: styles.statusAvailable,
@@ -52,23 +51,45 @@ const statusColor: Record<string, string> = {
   Sold: styles.statusSold,
 }
 
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Wholesale Appliance Load Manifests',
+  description: 'Current wholesale appliance loads available from E-Appliance Recycling Corp',
+  url: `${CANONICAL_DOMAIN}/manifests`,
+  itemListElement: manifests.map((m, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: `Load ${m.id}: ${m.category} — ${m.units} units — ${m.hub} — ${m.status}`,
+    description: m.notes,
+  })),
+}
+
 export default function Manifests() {
   return (
     <>
-      {/* ── HEADER ── */}
+      <PageSeo
+        title="Appliance Load Manifests & Current Inventory | E-Appliance Recycling Corp"
+        description="View available wholesale appliance loads by category, quantity, and hub location. Customer returns and scratch-and-dent inventory with video walkthroughs available before purchase."
+        canonical="/manifests"
+        og={{ title: 'Appliance Load Manifests & Current Inventory', description: 'Available wholesale appliance loads with video walkthroughs before purchase.', type: 'website' }}
+        twitter={{ card: 'summary', title: 'Appliance Load Manifests & Inventory' }}
+        schema={itemListSchema}
+      />
+
       <section className={styles.header}>
         <div className="container">
+          <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Inventory & Manifests', path: '/manifests' }]} />
           <span className="eyebrow">Inventory &amp; Manifests</span>
           <h1>What we have and how it works</h1>
           <p className={styles.lead}>
             All inventory is customer returns and scratch-and-dent — every unit functional,
-            cosmetic flaws only. We don't run a live catalog. Loads are posted here as they
+            cosmetic flaws only. We do not run a live catalog. Loads are posted here as they
             come in, and walked on video before you commit to anything.
           </p>
         </div>
       </section>
 
-      {/* ── WHAT WE CARRY ── */}
       <section className="section section--alt">
         <div className="container">
           <div className={styles.carryRow}>
@@ -88,11 +109,9 @@ export default function Manifests() {
         </div>
       </section>
 
-      {/* ── PROCESS + VIDEO PROOF ── */}
       <section className="section">
         <div className="container">
           <div className={styles.processVideoRow}>
-
             <div className={styles.processSide}>
               <h2>From first call to pickup</h2>
               <div className={styles.processList}>
@@ -132,12 +151,10 @@ export default function Manifests() {
                 className={styles.sampleVideo}
               />
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* ── MANIFEST TABLE ── */}
       <section className="section section--alt">
         <div className="container">
           <div className={styles.tableHeader}>
@@ -184,6 +201,9 @@ export default function Manifests() {
                                 src={m.thumbnailUrl}
                                 alt={`Load ${m.id} thumbnail`}
                                 className={styles.thumb}
+                                loading="lazy"
+                                width="64"
+                                height="64"
                               />
                             ) : (
                               <div className={styles.thumbPlaceholder} title="Add thumbnailUrl to activate">
@@ -208,33 +228,17 @@ export default function Manifests() {
                         <td>
                           <div className={styles.actions}>
                             {m.videoUrl && (
-                              <a
-                                href={m.videoUrl}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="btn btn--primary"
-                                style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}
-                              >
+                              <a href={m.videoUrl} target="_blank" rel="noreferrer" className="btn btn--primary" style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}>
                                 Watch Video
                               </a>
                             )}
                             {m.file && (
-                              <a
-                                href={m.file}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="btn btn--outline"
-                                style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}
-                              >
+                              <a href={m.file} target="_blank" rel="noreferrer" className="btn btn--outline" style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}>
                                 Download
                               </a>
                             )}
                             {!m.videoUrl && !m.file && (
-                              <a
-                                href={`tel:${site.contact.phone}`}
-                                className="btn btn--ghost"
-                                style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}
-                              >
+                              <a href={`tel:${site.contact.phone}`} className="btn btn--ghost" style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}>
                                 Call to Inquire
                               </a>
                             )}
@@ -255,12 +259,11 @@ export default function Manifests() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
       <section className="section">
         <div className="container">
           <div className={styles.cta}>
             <div>
-              <h2>Don't see what you need?</h2>
+              <h2>Do not see what you need?</h2>
               <p>
                 Tell us what categories or load sizes you are looking for and we will reach out when matching inventory comes in.
               </p>
