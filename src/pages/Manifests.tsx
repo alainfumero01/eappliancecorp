@@ -163,21 +163,21 @@ export default function Manifests() {
                 <table>
                   <thead>
                     <tr>
-                      <th>Photo</th>
+                      <th className={styles.colHide}>Photo</th>
                       <th>Load #</th>
-                      <th>Date</th>
+                      <th className={styles.colHide}>Date</th>
                       <th>Category</th>
-                      <th>Units</th>
-                      <th>Hub</th>
+                      <th className={styles.colHide}>Units</th>
+                      <th className={styles.colHide}>Hub</th>
                       <th>Status</th>
-                      <th>Notes</th>
+                      <th className={styles.colHide}>Notes</th>
                       <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {manifests.map((m) => (
                       <tr key={m.id}>
-                        <td>
+                        <td className={styles.colHide}>
                           <div className={styles.thumbCell}>
                             {m.thumbnailUrl ? (
                               <img
@@ -197,14 +197,14 @@ export default function Manifests() {
                         <td className={styles.loadId}>{m.id}</td>
                         <td className={styles.date}>{new Date(m.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</td>
                         <td>{m.category}</td>
-                        <td>{m.units}</td>
-                        <td>{m.hub}</td>
+                        <td className={styles.colHide}>{m.units}</td>
+                        <td className={styles.colHide}>{m.hub}</td>
                         <td>
                           <span className={[styles.status, statusColor[m.status] ?? ''].join(' ')}>
                             {m.status}
                           </span>
                         </td>
-                        <td className={styles.notes}>{m.notes}</td>
+                        <td className={`${styles.notes} ${styles.colHide}`}>{m.notes}</td>
                         <td>
                           <div className={styles.actions}>
                             {m.videoUrl && (

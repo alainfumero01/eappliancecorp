@@ -12,12 +12,7 @@
   height: 100%;
 }
 
-/* ── LOGO ──
-   The wordmark PNG has large white padding around the text.
-   .logoWrap clips the padding so the text fills the navbar
-   without appearing tiny.
-   Tuning: adjust width/margin-top if the logo file changes.
-── */
+/* ── LOGO ── */
 .logoLink {
   display: flex;
   align-items: center;
@@ -25,29 +20,37 @@
   text-decoration: none;
 }
 
+/* Clip wrapper — hides the large white padding around the wordmark */
 .logoWrap {
-  /* clip the white canvas padding to show only the wordmark */
-  width: 190px;
-  height: 56px;
+  width: 130px;
+  height: 42px;
   overflow: hidden;
   position: relative;
   flex-shrink: 0;
 }
 
 .logoImg {
-  /* image is 1333×1000 px; text fills ~70% width × 40% height,
-     centered on canvas. Expanding width to ~290px makes the text
-     ~75px tall; negative margin-top offsets the top whitespace. */
-  width: 290px;
+  /* Scaled proportionally so text fills the clip area */
+  width: 200px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: -48px;
+  margin-top: -33px;
   display: block;
 }
 
+@media (min-width: 480px) {
+  .logoWrap { width: 160px; height: 50px; }
+  .logoImg  { width: 246px; margin-top: -41px; }
+}
+
+@media (min-width: 768px) {
+  .logoWrap { width: 190px; height: 56px; }
+  .logoImg  { width: 290px; margin-top: -48px; }
+}
+
 .logoText {
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.015em;
   color: var(--color-navy);
@@ -66,7 +69,7 @@
 
 .link {
   display: block;
-  padding: 0.375rem 0.625rem;
+  padding: 0.5rem 0.625rem;
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-muted);
@@ -88,16 +91,21 @@
   display: none;
 }
 
-/* ── HAMBURGER ── */
+/* ── HAMBURGER — min 44×44 touch target ── */
 .hamburger {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 6px;
+  padding: 0;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: var(--radius);
+  flex-shrink: 0;
 }
 
 .bar {
@@ -107,17 +115,18 @@
   background: var(--color-text);
   border-radius: 2px;
   transition: transform 0.2s, opacity 0.2s;
+  pointer-events: none;
 }
 
-.barOpen1 { transform: translateY(7px) rotate(45deg); }
+.barOpen1 { transform: translateY(7px) rotate(44deg); }
 .barOpen2 { opacity: 0; }
-.barOpen3 { transform: translateY(-7px) rotate(-45deg); }
+.barOpen3 { transform: translateY(-7px) rotate(-44deg); }
 
 /* ── MOBILE MENU ── */
 .mobileMenu {
   background: var(--color-surface);
   border-top: 1px solid var(--color-border);
-  padding: 1rem 1.5rem 1.25rem;
+  padding: 0.5rem 1.25rem 1.25rem;
 }
 
 .mobileLinks {
@@ -128,8 +137,10 @@
 }
 
 .mobileLink {
-  display: block;
-  padding: 0.75rem 0;
+  display: flex;
+  align-items: center;
+  padding: 0 0.25rem;
+  min-height: 48px;
   font-size: 1rem;
   font-weight: 500;
   color: var(--color-text-muted);
@@ -145,6 +156,7 @@
   gap: 0.75rem;
 }
 
+/* ── RESPONSIVE ── */
 @media (min-width: 768px) {
   .links { display: flex; }
   .desktopCta { display: inline-flex; }

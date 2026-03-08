@@ -1,6 +1,17 @@
+/* ── Mobile column hiding — shown at >= 640px ── */
+.colHide { display: none; }
+
+@media (min-width: 640px) {
+  .colHide { display: table-cell; }
+}
+
 .header {
-  padding: 4rem 0 3.5rem;
+  padding: 3rem 0 2.5rem;
   border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+  .header { padding: 4rem 0 3.5rem; }
 }
 
 .lead {
@@ -225,17 +236,19 @@
 .notes {
   font-size: 0.875rem;
   color: var(--color-text-muted);
-  min-width: 160px;
+  min-width: 0;
+  max-width: 240px;
 }
 
 /* ── STATUS BADGES ── */
 .status {
   display: inline-block;
-  padding: 0.2rem 0.625rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 100px;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 
 .statusAvailable {
