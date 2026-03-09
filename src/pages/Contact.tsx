@@ -27,7 +27,7 @@ export default function Contact() {
           <h1>Contact wholesale sales</h1>
           <p className={styles.lead}>
             Share your business details, category needs, and target volume. We reply with current load options,
-            condition expectations, and pickup guidance.
+            condition expectations, and shipping coordination.
           </p>
         </div>
       </section>
@@ -95,7 +95,7 @@ export default function Contact() {
                       required
                       rows={5}
                       className={styles.fieldTextarea}
-                      placeholder="Tell us your business type, categories you buy, load size, preferred hub (TX or NJ), and whether you'll self-pickup, use your own carrier, or need delivery."
+                      placeholder="Tell us your business type, categories you buy, load size, preferred hub (TX or NJ), and your shipping destination."
                     />
                   </div>
 

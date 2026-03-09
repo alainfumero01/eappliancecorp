@@ -8,7 +8,7 @@ export default function NewJerseyWholesale() {
     <>
       <PageSeo
         title="New Jersey Wholesale Appliance Loads | E-Appliance Recycling Corp"
-        description="Dealer-only appliance loads from our New Jersey hub with practical East Coast pickup and freight guidance."
+        description="Dealer-only appliance loads from our New Jersey hub with shipping coordinated through our freight broker network."
         canonical="/new-jersey-wholesale-appliance-loads"
         og={{ title: 'New Jersey Wholesale Appliance Loads', description: 'As-is wholesale appliance loads from our New Jersey distribution hub.', type: 'website' }}
         twitter={{ card: 'summary', title: 'New Jersey Wholesale Appliance Loads' }}
@@ -19,8 +19,7 @@ export default function NewJerseyWholesale() {
           <span className="eyebrow">New Jersey distribution hub</span>
           <h1>New Jersey Wholesale Appliance Loads</h1>
           <p className={styles.lead}>
-            Our New Jersey hub supports East Coast buyers who need steady load sourcing with direct pickup or
-            delivery at standard freight rates. Inventory is dealer-only and sold under as-is wholesale terms.
+            Our New Jersey hub supports East Coast buyers who need steady load sourcing. We work with multiple freight brokers to find the best shipping rate. Inventory is dealer-only and sold under as-is wholesale terms.
           </p>
         </div>
       </section>
@@ -52,7 +51,7 @@ export default function NewJerseyWholesale() {
           <div className={styles.featureGrid}>
             <div className={styles.featureCard}>
               <h3>Regional freight efficiency</h3>
-              <p>Shorter transit lanes for East Coast buyers compared with cross-country pickup.</p>
+              <p>Efficient East Coast shipping lanes with competitive rates through our freight broker network.</p>
             </div>
             <div className={styles.featureCard}>
               <h3>Load-level transparency</h3>
@@ -74,7 +73,7 @@ export default function NewJerseyWholesale() {
         <div className="container">
           <div className={styles.splitGrid}>
             <div>
-              <h2>How purchase and pickup works</h2>
+              <h2>How purchase and shipping works</h2>
               <ul className={styles.checkList}>
                 {site.process.map((step) => (
                   <li key={step.step} className={styles.checkItem}>

@@ -9,25 +9,13 @@ const manifests = [
     id: 'MF-2026-001',
     date: '2026-03-09',
     category: 'Ranges & Ovens',
-    model: 'Whirlpool WFG525S0JB (Gas)',
-    units: 15,
+    model: 'Whirlpool WFG525S0JB (Gas) + WFE515S0JB (Electric)',
+    units: 30,
     hub: 'Texas',
     status: 'Available',
-    price: '$13,000',
-    notes: '15-unit gas range load. New units, as-is wholesale terms.',
-    file: '/manifests/appliance_manifest_WFG525S0JB6.xlsx',
-  },
-  {
-    id: 'MF-2026-002',
-    date: '2026-03-09',
-    category: 'Ranges & Ovens',
-    model: 'Whirlpool WFE515S0JB (Electric)',
-    units: 15,
-    hub: 'Texas',
-    status: 'Available',
-    price: '$12,990',
-    notes: '15-unit electric range load. New units, as-is wholesale terms.',
-    file: '/manifests/appliance_manifest_WFE515S0JB4.xlsx',
+    price: '$25,990',
+    notes: '30-unit mixed range load (15 gas + 15 electric). New units, as-is wholesale terms.',
+    file: '/manifests/manifest-3.9.2026.xlsx',
   },
 ]
 
@@ -46,7 +34,7 @@ export default function Manifests() {
         canonical="/manifests"
         og={{
           title: 'Appliance Load Manifests & Current Inventory',
-          description: 'Current dealer-only appliance loads with practical condition guidance and pickup details.',
+          description: 'Current dealer-only appliance loads with practical condition guidance and shipping details.',
           type: 'website',
         }}
         twitter={{ card: 'summary', title: 'Appliance Load Manifests & Inventory' }}
@@ -91,7 +79,7 @@ export default function Manifests() {
         <div className="container">
           <div className={styles.processVideoRow}>
             <div className={styles.processSide}>
-              <h2>How purchase and pickup works</h2>
+              <h2>How purchase and shipping works</h2>
               <div className={styles.processList}>
                 {site.process.map((step, i) => (
                   <div key={step.step} className={styles.processItem}>
@@ -113,7 +101,7 @@ export default function Manifests() {
               <h2>Use notes, manifest rows, and media together</h2>
               <p>
                 A manifest row gives category, count, hub, and status. Walkthrough media, when available, adds visual
-                condition context. Buyers should review both before confirming payment and pickup.
+                condition context. Buyers should review both before confirming payment and shipping.
               </p>
               <p style={{ marginTop: '0.875rem' }}>
                 Final release is based on agreed wholesale terms and active inventory at the time of confirmation.

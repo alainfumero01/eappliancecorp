@@ -1,32 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 66" fill="none" role="img" aria-label="E-Appliances Corp. — Wholesale">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 66" fill="none" role="img" aria-label="E-Appliance Recycling Corp. — Wholesale">
   <!-- Decorative line + WHOLESALE label -->
-  <line x1="4"   y1="13" x2="68"  y2="13" stroke="#1E55C8" stroke-width="0.85"/>
-  <text x="140" y="17"
+  <line x1="4"   y1="13" x2="72"  y2="13" stroke="#1E55C8" stroke-width="0.85"/>
+  <text x="150" y="17"
     text-anchor="middle"
     font-family="system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif"
     font-size="8.5"
     font-weight="700"
     letter-spacing="2.8"
     fill="#1E55C8">WHOLESALE</text>
-  <line x1="212" y1="13" x2="276" y2="13" stroke="#1E55C8" stroke-width="0.85"/>
+  <line x1="228" y1="13" x2="296" y2="13" stroke="#1E55C8" stroke-width="0.85"/>
 
   <!-- Main wordmark -->
-  <text x="140" y="49"
+  <text x="150" y="49"
     text-anchor="middle"
     font-family="system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif"
     font-size="33"
     font-weight="800"
     font-style="italic"
-    fill="#0D1B72">E-Appliances</text>
+    fill="#0D1B72">E-Appliance</text>
 
-  <!-- Decorative line + CORP. label -->
-  <line x1="44"  y1="61" x2="86"  y2="61" stroke="#0D1B72" stroke-width="0.85"/>
-  <text x="140" y="65"
+  <!-- Decorative line + RECYCLING CORP. label -->
+  <line x1="10"  y1="61" x2="82"  y2="61" stroke="#0D1B72" stroke-width="0.85"/>
+  <text x="150" y="65"
     text-anchor="middle"
     font-family="system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif"
-    font-size="8"
+    font-size="7.5"
     font-weight="700"
-    letter-spacing="3.5"
-    fill="#0D1B72">CORP.</text>
-  <line x1="194" y1="61" x2="236" y2="61" stroke="#0D1B72" stroke-width="0.85"/>
+    letter-spacing="2.2"
+    fill="#0D1B72">RECYCLING CORP.</text>
+  <line x1="218" y1="61" x2="290" y2="61" stroke="#0D1B72" stroke-width="0.85"/>
 </svg>

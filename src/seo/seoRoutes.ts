@@ -72,7 +72,7 @@ const routeConfigs: RouteSeoConfig[] = [
     og: {
       title: 'Wholesale Appliance Loads for Resellers | E-Appliance Recycling Corp',
       description:
-        'Dealer-only appliance loads with as-is wholesale terms, condition notes, and pickup from Texas or New Jersey.',
+        'Dealer-only appliance loads with as-is wholesale terms, condition notes, and shipping through our freight broker network.',
       type: 'website',
       image: `${CANONICAL_DOMAIN}/images/logo.png`,
     },
@@ -109,7 +109,7 @@ const routeConfigs: RouteSeoConfig[] = [
     og: {
       title: 'Appliance Load Manifests & Current Inventory',
       description:
-        'Current dealer-only appliance loads with practical condition guidance and pickup details.',
+        'Current dealer-only appliance loads with practical condition guidance and shipping details.',
       type: 'website',
     },
     twitter: {
@@ -140,7 +140,7 @@ const routeConfigs: RouteSeoConfig[] = [
     path: '/texas-wholesale-appliance-loads',
     title: 'Texas Wholesale Appliance Loads | E-Appliance Recycling Corp',
     description:
-      'Dealer-only appliance loads available from our Texas hub. Review pickup and freight expectations for regional buyers.',
+      'Dealer-only appliance loads from our Texas hub with shipping coordinated through our freight broker network.',
     robots: 'index,follow',
     og: {
       title: 'Texas Wholesale Appliance Loads',
@@ -157,7 +157,7 @@ const routeConfigs: RouteSeoConfig[] = [
     path: '/new-jersey-wholesale-appliance-loads',
     title: 'New Jersey Wholesale Appliance Loads | E-Appliance Recycling Corp',
     description:
-      'Dealer-only appliance loads from our New Jersey hub with practical East Coast pickup and freight guidance.',
+      'Dealer-only appliance loads from our New Jersey hub with shipping coordinated through our freight broker network.',
     robots: 'index,follow',
     og: {
       title: 'New Jersey Wholesale Appliance Loads',
@@ -229,7 +229,7 @@ const routeConfigs: RouteSeoConfig[] = [
     robots: 'index,follow',
     og: {
       title: 'Wholesale Refrigerator Loads',
-      description: 'Dealer-only refrigerator loads with practical condition and pickup guidance.',
+      description: 'Dealer-only refrigerator loads with shipping coordinated through our freight broker network.',
       type: 'website',
     },
     twitter: {
@@ -246,7 +246,7 @@ const routeConfigs: RouteSeoConfig[] = [
     robots: 'index,follow',
     og: {
       title: 'Wholesale Washer and Dryer Loads',
-      description: 'Dealer-only washer and dryer loads with practical buying and pickup guidance.',
+      description: 'Dealer-only washer and dryer loads with shipping coordinated through our freight broker network.',
       type: 'website',
     },
     twitter: {

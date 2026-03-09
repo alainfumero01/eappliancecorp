@@ -60,7 +60,7 @@ export default function WholesaleResellers() {
             </div>
             <div className={styles.featureCard}>
               <h3>Hub flexibility</h3>
-              <p>Texas and New Jersey pickup options to support regional planning.</p>
+              <p>Shipping from Texas and New Jersey hubs coordinated through our freight broker network.</p>
             </div>
             <div className={styles.featureCard}>
               <h3>Wholesale terms discipline</h3>

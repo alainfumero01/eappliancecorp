@@ -11,4 +11,4 @@ video-project/out/
 video-project/public/
 
 # Stray root-level folders
-manifests/
+/manifests/

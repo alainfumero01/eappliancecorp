@@ -36,7 +36,7 @@ export default function ApplianceLiquidation() {
             </p>
             <p>
               The correct buying approach is operational: review category mix, approximate counts, condition profile,
-              and pickup timing. Decide based on your channel economics, not on assumptions of showroom-grade uniformity.
+              and shipping timeline. Decide based on your channel economics, not on assumptions of showroom-grade uniformity.
             </p>
             <p>
               We confirm active load details before release and align terms with qualified wholesale buyers. Inventory
@@ -64,7 +64,7 @@ export default function ApplianceLiquidation() {
             </div>
             <div className={styles.featureCard}>
               <h3>Release logistics</h3>
-              <p>Pickup timing, freight readiness, and document sequence before dispatch.</p>
+              <p>Shipping timeline and document sequence before dispatch.</p>
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@ export default function ApplianceLiquidation() {
               </ul>
             </div>
             <div>
-              <h2>How purchase and pickup works</h2>
+              <h2>How purchase and shipping works</h2>
               <ul className={styles.checkList}>
                 {site.process.map((step) => (
                   <li key={step.step} className={styles.checkItem}>

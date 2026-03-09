@@ -27,7 +27,7 @@ export const site = {
     },
     {
       heading: 'Operational support',
-      body: 'Two hubs, pickup or delivery at standard freight rates, and straightforward load coordination.',
+      body: 'Two hubs. We work with multiple freight brokers to find the best shipping rate for your load.',
     },
   ],
 
@@ -58,8 +58,8 @@ export const site = {
     },
     {
       step: '4',
-      label: 'Receive and resell',
-      detail: 'Pick up from our hub or arrange delivery at standard freight rates and move inventory through your channel.',
+      label: 'Ship and resell',
+      detail: 'We coordinate with trusted freight brokers to get you the best rate. Confirm shipping and move inventory through your channel.',
     },
   ],
 
@@ -76,7 +76,7 @@ export const site = {
       'Dealer-only wholesale transactions.',
       'As-is sale structure under agreed terms.',
       'Final pricing, logistics method, and payment timing confirmed before release.',
-      'Pickup from Texas or New Jersey hub, or delivery at standard freight rates.',
+      'Shipping coordinated through our freight broker network for competitive rates.',
     ],
     buyerQualification: [
       'Appliance retailers and outlet stores',
@@ -93,7 +93,7 @@ export const site = {
       'Business name and resale channel',
       'Preferred categories and load size',
       'Preferred hub: Texas or New Jersey',
-      'Logistics preference: self-pickup, own carrier, or delivery',
+      'Preferred shipping destination and target delivery timeline',
       'Target purchase timing and monthly volume',
     ],
   },

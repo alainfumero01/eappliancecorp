@@ -10,7 +10,7 @@ export default function WholesaleRefrigerators() {
         title="Wholesale Refrigerator Loads | Dealer-Only Inventory"
         description="Wholesale refrigerator loads with mixed configurations and condition ranges. Sold as-is to qualified appliance buyers."
         canonical="/wholesale-refrigerator-loads"
-        og={{ title: 'Wholesale Refrigerator Loads', description: 'Dealer-only refrigerator loads with practical condition and pickup guidance.', type: 'website' }}
+        og={{ title: 'Wholesale Refrigerator Loads', description: 'Dealer-only refrigerator loads with shipping coordinated through our freight broker network.', type: 'website' }}
         twitter={{ card: 'summary', title: 'Wholesale Refrigerator Loads' }}
       />
 

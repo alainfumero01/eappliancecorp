@@ -22,7 +22,7 @@ const guarantees = [
   {
     stat: 'As-Is',
     label: 'Terms confirmed before release',
-    desc: 'Inventory is sold as-is under wholesale terms agreed before pickup.',
+    desc: 'Inventory is sold as-is under wholesale terms agreed before shipping.',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <polyline points="20 6 9 17 4 12" />
@@ -42,8 +42,8 @@ const guarantees = [
   },
   {
     stat: 'TX/NJ',
-    label: 'Two pickup hubs',
-    desc: 'Pickup from Texas or New Jersey, or delivery at standard freight rates.',
+    label: 'Two shipping hubs',
+    desc: 'Shipping coordinated through our freight broker network for the best available rate.',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -99,7 +99,7 @@ export default function Home() {
               </div>
               <div className={styles.sidebarCard}>
                 <p className={styles.sidebarStat}>{site.hubs.length}</p>
-                <p className={styles.sidebarLabel}>Pickup hubs</p>
+                <p className={styles.sidebarLabel}>Shipping hubs</p>
               </div>
               <div className={styles.sidebarCard}>
                 <p className={styles.sidebarStat}>As-Is</p>
@@ -138,7 +138,7 @@ export default function Home() {
               </p>
               <p style={{ marginTop: '1rem' }}>
                 We do not run consumer retail. We do not price single units. We discuss available loads, confirm terms,
-                and coordinate pickup or delivery at standard freight rates with qualified buyers.
+                and coordinate shipping through our trusted freight broker network with qualified buyers.
               </p>
               <div style={{ marginTop: '1.75rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                 <Link to="/about" className="btn btn--outline">
@@ -203,7 +203,7 @@ export default function Home() {
 
       <section className="section section--alt">
         <div className="container">
-          <span className="eyebrow">How purchase and pickup works</span>
+          <span className="eyebrow">How purchase and shipping works</span>
           <h2>From inquiry to release</h2>
           <div className={styles.processGrid}>
             {site.process.map((step) => (
@@ -225,7 +225,7 @@ export default function Home() {
                 <span className="eyebrow">Load review media</span>
                 <h2>See inventory before release</h2>
                 <p style={{ color: 'var(--color-text-muted)', marginTop: '0.75rem' }}>
-                  Media is used to support condition review before payment and pickup confirmation.
+                  Media is used to support condition review before payment and shipping confirmation.
                 </p>
               </div>
               <MediaSlot

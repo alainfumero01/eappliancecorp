@@ -10,7 +10,7 @@ export default function WholesaleWasherDryer() {
         title="Wholesale Washer and Dryer Loads | Pairs & Singles"
         description="Wholesale washer and dryer loads for qualified buyers. Review pair and single mix expectations and as-is purchase terms."
         canonical="/wholesale-washer-dryer-loads"
-        og={{ title: 'Wholesale Washer and Dryer Loads', description: 'Dealer-only washer and dryer loads with practical buying and pickup guidance.', type: 'website' }}
+        og={{ title: 'Wholesale Washer and Dryer Loads', description: 'Dealer-only washer and dryer loads with shipping coordinated through our freight broker network.', type: 'website' }}
         twitter={{ card: 'summary', title: 'Wholesale Washer and Dryer Loads' }}
       />
 
@@ -39,7 +39,7 @@ export default function WholesaleWasherDryer() {
               panel and finish variability in resale planning.
             </p>
             <p>
-              Loads are sold as-is to qualified wholesale buyers. Release and pickup are coordinated after pricing,
+              Loads are sold as-is to qualified wholesale buyers. Release and shipping are coordinated after pricing,
               terms, and timing are confirmed.
             </p>
           </div>
@@ -74,7 +74,7 @@ export default function WholesaleWasherDryer() {
         <div className="container">
           <div className={styles.splitGrid}>
             <div>
-              <h2>How purchase and pickup works</h2>
+              <h2>How purchase and shipping works</h2>
               <ul className={styles.checkList}>
                 {site.process.map((step) => (
                   <li key={step.step} className={styles.checkItem}>

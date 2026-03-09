@@ -39,7 +39,7 @@ export default function ScratchAndDent() {
               The purchase decision depends on your tolerance for cosmetic grade spread and your downstream customer profile.
             </p>
             <p>
-              We review the active load profile before release and confirm wholesale terms before pickup.
+              We review the active load profile before release and confirm wholesale terms before shipping.
               This category is sold as-is and is not structured as consumer-grade retail inventory.
             </p>
           </div>
@@ -64,7 +64,7 @@ export default function ScratchAndDent() {
             </div>
             <div className={styles.featureCard}>
               <h3>Two-hub access</h3>
-              <p>Pickup and freight coordination available through Texas and New Jersey hubs.</p>
+              <p>Shipping coordinated through our freight broker network from Texas and New Jersey hubs.</p>
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@ export default function ScratchAndDent() {
               </ul>
             </div>
             <div>
-              <h2>How purchase and pickup works</h2>
+              <h2>How purchase and shipping works</h2>
               <ul className={styles.checkList}>
                 {site.process.map((step) => (
                   <li key={step.step} className={styles.checkItem}>

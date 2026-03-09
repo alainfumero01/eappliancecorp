@@ -8,7 +8,7 @@ export default function TexasWholesale() {
     <>
       <PageSeo
         title="Texas Wholesale Appliance Loads | E-Appliance Recycling Corp"
-        description="Dealer-only appliance loads available from our Texas hub. Review pickup and freight expectations for regional buyers."
+        description="Dealer-only appliance loads from our Texas hub with shipping coordinated through our freight broker network."
         canonical="/texas-wholesale-appliance-loads"
         og={{ title: 'Texas Wholesale Appliance Loads', description: 'As-is wholesale appliance loads from our Texas distribution hub.', type: 'website' }}
         twitter={{ card: 'summary', title: 'Texas Wholesale Appliance Loads' }}
@@ -28,10 +28,10 @@ export default function TexasWholesale() {
       <section className="section section--alt">
         <div className="container">
           <div className={styles.contentBlock}>
-            <span className="eyebrow">Regional pickup and freight</span>
+            <span className="eyebrow">Regional shipping and freight</span>
             <h2>How Texas load buying works</h2>
             <p>
-              Buyers use our Texas location when they need faster regional pickup, shorter freight lanes, or consistent
+              Buyers use our Texas location when they need shorter freight lanes, competitive shipping rates, or consistent
               restock support. We discuss current category mix, approximate count, and condition profile before you commit.
             </p>
             <p>
@@ -59,8 +59,8 @@ export default function TexasWholesale() {
               <p>Expected grading spread, cosmetic variability, and any known concentration by category.</p>
             </div>
             <div className={styles.featureCard}>
-              <h3>Pickup window</h3>
-              <p>Available release windows and whether your team or carrier can meet the schedule.</p>
+              <h3>Shipping timeline</h3>
+              <p>We confirm release timing and coordinate with freight brokers to match your delivery schedule.</p>
             </div>
             <div className={styles.featureCard}>
               <h3>Freight readiness</h3>

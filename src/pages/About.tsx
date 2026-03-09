@@ -27,7 +27,7 @@ export default function About() {
           <h1>{site.yearsInBusiness}+ years in appliance load wholesale</h1>
           <p className={styles.lead}>
             We source appliance inventory for dealers who buy by the load. Our focus is repeatable B2B supply,
-            clear terms, and practical communication around condition and pickup.
+            clear terms, and practical communication around condition and shipping.
           </p>
         </div>
       </section>
@@ -94,7 +94,7 @@ export default function About() {
             <div className={styles.valuesLeft}>
               <h2>Operational standards</h2>
               <p>
-                Our buyers stay with us because communication is practical. We focus on what matters for purchasing and pickup.
+                Our buyers stay with us because communication is practical. We focus on what matters for purchasing and shipping.
               </p>
             </div>
             <div className={styles.valuesList}>
@@ -104,7 +104,7 @@ export default function About() {
               </div>
               <div className={styles.valueItem}>
                 <h3>Terms before release</h3>
-                <p>Price, payment timing, and pickup window are confirmed before inventory is released.</p>
+                <p>Price, payment timing, and shipping timeline are confirmed before inventory is released.</p>
               </div>
               <div className={styles.valueItem}>
                 <h3>Dealer qualification</h3>
