@@ -4,7 +4,7 @@ import MediaSlot from '../components/MediaSlot'
 import PageSeo from '../components/PageSeo'
 import styles from './About.module.css'
 
-const STORY_IMAGE = null // e.g. '/images/about-warehouse.jpg'
+const STORY_IMAGE = '/videos/about-brand.mp4'
 
 export default function About() {
   return (
@@ -63,9 +63,8 @@ export default function About() {
             <div className={styles.storyAside}>
               <MediaSlot
                 src={STORY_IMAGE}
-                type="image"
-                alt="E-Appliance Recycling Corp warehouse or load staging"
-                label="About photo - warehouse, staging area, or outbound load"
+                type="video"
+                alt="E-Appliance Recycling Corp — 15+ years in appliance load wholesale"
                 aspectRatio="4/3"
               />
               <div className={styles.asideBlock} style={{ marginTop: '1.25rem' }}>
