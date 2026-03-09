@@ -84,15 +84,12 @@ export default function Home() {
                 before purchase.
               </p>
               <div className={styles.heroCtas}>
-                <a href={`tel:${site.contact.phone}`} className={`btn btn--primary btn--lg ${styles.heroCtaPrimary}`}>
-                  Call for Current Loads
-                </a>
-                <a
-                  href={`sms:${site.contact.phone}?body=${encodeURIComponent(site.contact.smsBody)}`}
-                  className={`btn btn--lg ${styles.heroCtaGhost}`}
-                >
-                  Text Your Requirements
-                </a>
+                <Link to="/contact" className={`btn btn--primary btn--lg ${styles.heroCtaPrimary}`}>
+                  Send an Inquiry
+                </Link>
+                <Link to="/manifests" className={`btn btn--lg ${styles.heroCtaGhost}`}>
+                  View Inventory
+                </Link>
               </div>
             </div>
             <div className={styles.heroSidebar}>
@@ -297,12 +294,9 @@ export default function Home() {
               <p>Send your category and volume requirements. We will confirm current load options and terms.</p>
             </div>
             <div className={styles.ctaButtons}>
-              <a href={`tel:${site.contact.phone}`} className="btn btn--primary btn--lg">
-                Call {site.contact.phoneDisplay}
-              </a>
-              <a href={`sms:${site.contact.phone}?body=${encodeURIComponent(site.contact.smsBody)}`} className="btn btn--outline btn--lg">
-                Send a Text
-              </a>
+              <Link to="/contact" className="btn btn--primary btn--lg">
+                Send an Inquiry
+              </Link>
             </div>
           </div>
         </div>

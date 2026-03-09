@@ -54,8 +54,7 @@ export default function Footer() {
 
           <div className={styles.contact}>
             <span className={styles.navLabel}>Contact</span>
-            <a href={`tel:${site.contact.phone}`}>{site.contact.phoneDisplay}</a>
-            <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+            <Link to="/contact" className="btn btn--primary" style={{ marginTop: '0.5rem' }}>Send an Inquiry</Link>
           </div>
         </div>
 

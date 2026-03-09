@@ -45,12 +45,12 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <a
-            href={`tel:${site.contact.phone}`}
+          <Link
+            to="/contact"
             className={`btn btn--primary ${styles.desktopCta}`}
           >
-            Call Now
-          </a>
+            Get in Touch
+          </Link>
 
           <button
             className={styles.hamburger}
@@ -83,17 +83,9 @@ export default function Navbar() {
               ))}
             </ul>
             <div className={styles.mobileCtas}>
-              <a href={`tel:${site.contact.phone}`} className="btn btn--primary" style={{ flex: 1, justifyContent: 'center' }} onClick={() => setOpen(false)}>
-                Call
-              </a>
-              <a
-                href={`sms:${site.contact.phone}?body=${encodeURIComponent(site.contact.smsBody)}`}
-                className="btn btn--ghost"
-                style={{ flex: 1, justifyContent: 'center' }}
-                onClick={() => setOpen(false)}
-              >
-                Text
-              </a>
+              <Link to="/contact" className="btn btn--primary" style={{ flex: 1, justifyContent: 'center' }} onClick={() => setOpen(false)}>
+                Contact Us
+              </Link>
             </div>
           </div>
         )}

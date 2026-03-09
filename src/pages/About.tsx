@@ -115,7 +115,7 @@ export default function About() {
               </div>
               <div className={styles.valueItem}>
                 <h3>Direct communication</h3>
-                <p>Buyers reach us directly by call or text for current load availability and logistics coordination.</p>
+                <p>Buyers reach us directly through our contact form for current load availability and logistics coordination.</p>
               </div>
             </div>
           </div>
@@ -130,11 +130,8 @@ export default function About() {
               <p>Send your category and volume requirements and we will respond with what is active now.</p>
             </div>
             <div className={styles.ctaBtns}>
-              <a href={`tel:${site.contact.phone}`} className="btn btn--primary btn--lg">
-                Call {site.contact.phoneDisplay}
-              </a>
-              <Link to="/contact" className="btn btn--ghost btn--lg">
-                Contact Page
+              <Link to="/contact" className="btn btn--primary btn--lg">
+                Send an Inquiry
               </Link>
             </div>
           </div>

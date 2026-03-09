@@ -128,8 +128,7 @@ export default function ApplianceLiquidation() {
               <p>Send category targets and volume. We will return active loads and current terms.</p>
             </div>
             <div className={styles.ctaBtns}>
-              <a href={`tel:${site.contact.phone}`} className="btn btn--primary btn--lg">Call {site.contact.phoneDisplay}</a>
-              <a href={`sms:${site.contact.phone}?body=${encodeURIComponent(site.contact.smsBody)}`} className="btn btn--outline btn--lg">Text Us</a>
+              <Link to="/contact" className="btn btn--primary btn--lg">Send an Inquiry</Link>
             </div>
           </div>
         </div>

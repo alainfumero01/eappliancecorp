@@ -130,8 +130,7 @@ export default function WholesaleRefrigerators() {
               <p>Send your preferred configuration mix and target volume. We will return current options.</p>
             </div>
             <div className={styles.ctaBtns}>
-              <a href={`tel:${site.contact.phone}`} className="btn btn--primary btn--lg">Call {site.contact.phoneDisplay}</a>
-              <a href={`sms:${site.contact.phone}?body=${encodeURIComponent(site.contact.smsBody)}`} className="btn btn--outline btn--lg">Text Us</a>
+              <Link to="/contact" className="btn btn--primary btn--lg">Send an Inquiry</Link>
             </div>
           </div>
         </div>

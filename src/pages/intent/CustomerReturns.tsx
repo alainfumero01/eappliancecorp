@@ -120,11 +120,10 @@ export default function CustomerReturns() {
           <div className={styles.ctaInner}>
             <div>
               <h2>Request customer return load options</h2>
-              <p>Call or text your requirements and we will return active load choices by hub.</p>
+              <p>Send us your requirements and we will return active load choices by hub.</p>
             </div>
             <div className={styles.ctaBtns}>
-              <a href={`tel:${site.contact.phone}`} className="btn btn--primary btn--lg">Call {site.contact.phoneDisplay}</a>
-              <a href={`sms:${site.contact.phone}?body=${encodeURIComponent(site.contact.smsBody)}`} className="btn btn--outline btn--lg">Text Us</a>
+              <Link to="/contact" className="btn btn--primary btn--lg">Send an Inquiry</Link>
             </div>
           </div>
         </div>

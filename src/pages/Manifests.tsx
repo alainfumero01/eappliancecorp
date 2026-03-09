@@ -1,4 +1,5 @@
-﻿import { site } from '../content/siteContent'
+﻿import { Link } from 'react-router-dom'
+import { site } from '../content/siteContent'
 import MediaSlot from '../components/MediaSlot'
 import PageSeo from '../components/PageSeo'
 import Breadcrumb from '../components/Breadcrumb'
@@ -172,14 +173,14 @@ export default function Manifests() {
                 <code className={styles.code}> videoUrl </code> for each item.
               </p>
             </div>
-            <a href={`tel:${site.contact.phone}`} className="btn btn--primary">
-              Call to Inquire
-            </a>
+            <Link to="/contact" className="btn btn--primary">
+              Send an Inquiry
+            </Link>
           </div>
 
           {manifests.length === 0 ? (
             <div className={styles.empty}>
-              <p>No manifests posted yet. Call or text for current load availability.</p>
+              <p>No manifests posted yet. Send an inquiry for current load availability.</p>
             </div>
           ) : (
             <>
@@ -263,13 +264,13 @@ export default function Manifests() {
                               </a>
                             )}
                             {!m.videoUrl && !m.file && (
-                              <a
-                                href={`tel:${site.contact.phone}`}
+                              <Link
+                                to="/contact"
                                 className="btn btn--ghost"
                                 style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}
                               >
-                                Call to Inquire
-                              </a>
+                                Inquire
+                              </Link>
                             )}
                           </div>
                         </td>
@@ -302,12 +303,9 @@ export default function Manifests() {
               </ul>
             </div>
             <div className={styles.ctaBtns}>
-              <a href={`tel:${site.contact.phone}`} className="btn btn--primary btn--lg">
-                Call {site.contact.phoneDisplay}
-              </a>
-              <a href={`sms:${site.contact.phone}?body=${encodeURIComponent(site.contact.smsBody)}`} className="btn btn--ghost btn--lg">
-                Text Us
-              </a>
+              <Link to="/contact" className="btn btn--primary btn--lg">
+                Send an Inquiry
+              </Link>
             </div>
           </div>
         </div>

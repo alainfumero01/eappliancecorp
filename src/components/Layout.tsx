@@ -21,8 +21,7 @@ const organizationSchema = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'sales',
-    telephone: site.contact.phone,
-    email: site.contact.email,
+    url: `${CANONICAL_DOMAIN}/contact`,
     availableLanguage: 'English',
   },
   areaServed: [
