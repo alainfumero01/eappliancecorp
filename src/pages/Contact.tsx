@@ -1,9 +1,41 @@
-﻿import { site } from '../content/siteContent'
+import { useState } from 'react'
+import { site } from '../content/siteContent'
 import PageSeo from '../components/PageSeo'
 import Breadcrumb from '../components/Breadcrumb'
 import styles from './Contact.module.css'
 
+type Status = 'idle' | 'sending' | 'success' | 'error'
+
 export default function Contact() {
+  const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' })
+  const [status, setStatus] = useState<Status>('idle')
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    setForm(f => ({ ...f, [e.target.name]: e.target.value }))
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setStatus('sending')
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/alainfumero2000@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          Name: form.name,
+          Phone: form.phone,
+          Email: form.email,
+          Message: form.message,
+          _subject: 'New wholesale inquiry from E-Appliance website',
+        }),
+      })
+      const data = await res.json()
+      setStatus(data.success === 'true' || data.success === true ? 'success' : 'error')
+    } catch {
+      setStatus('error')
+    }
+  }
+
   return (
     <>
       <PageSeo
@@ -34,36 +66,78 @@ export default function Contact() {
         <div className="container">
           <div className={styles.contactGrid}>
             <div className={styles.contactMain}>
-              <div className={styles.methodBlock}>
-                <p className={styles.methodLabel}>Phone</p>
-                <a href={`tel:${site.contact.phone}`} className={styles.methodValue}>
-                  {site.contact.phoneDisplay}
-                </a>
-                <p className={styles.methodNote}>Fastest channel for active load availability and hub coordination.</p>
-                <div style={{ marginTop: '1rem', display: 'flex', gap: '0.625rem' }}>
-                  <a href={`tel:${site.contact.phone}`} className="btn btn--primary">
-                    Call Now
-                  </a>
-                  <a href={`sms:${site.contact.phone}?body=${encodeURIComponent(site.contact.smsBody)}`} className="btn btn--ghost">
-                    Send a Text
-                  </a>
+              {status === 'success' ? (
+                <div className={styles.successMsg}>
+                  <p className={styles.successTitle}>Message received</p>
+                  <p>Thank you for reaching out. We'll review your inquiry and get back to you shortly.</p>
                 </div>
-              </div>
+              ) : (
+                <form onSubmit={handleSubmit} className={styles.contactForm} noValidate>
+                  <div className={styles.fieldGroup}>
+                    <label htmlFor="name" className={styles.fieldLabel}>Full name</label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      className={styles.fieldInput}
+                      placeholder="Your name"
+                      value={form.name}
+                      onChange={handleChange}
+                    />
+                  </div>
 
-              <hr className="divider" />
+                  <div className={styles.fieldGroup}>
+                    <label htmlFor="phone" className={styles.fieldLabel}>Phone number</label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      required
+                      className={styles.fieldInput}
+                      placeholder="(555) 000-0000"
+                      value={form.phone}
+                      onChange={handleChange}
+                    />
+                  </div>
 
-              <div className={styles.methodBlock}>
-                <p className={styles.methodLabel}>Email</p>
-                <a href={`mailto:${site.contact.email}`} className={styles.methodValue}>
-                  {site.contact.email}
-                </a>
-                <p className={styles.methodNote}>Use email for formal requirements, purchase history, and document exchange.</p>
-                <div style={{ marginTop: '1rem' }}>
-                  <a href={`mailto:${site.contact.email}`} className="btn btn--ghost">
-                    Send Email
-                  </a>
-                </div>
-              </div>
+                  <div className={styles.fieldGroup}>
+                    <label htmlFor="email" className={styles.fieldLabel}>Email address</label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      className={styles.fieldInput}
+                      placeholder="you@company.com"
+                      value={form.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className={styles.fieldGroup}>
+                    <label htmlFor="message" className={styles.fieldLabel}>Message</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={5}
+                      className={styles.fieldTextarea}
+                      placeholder="Tell us your business type, categories you buy, load size, preferred hub (TX or NJ), and pickup method."
+                      value={form.message}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  {status === 'error' && (
+                    <p className={styles.errorMsg}>Something went wrong. Please try again or reach out directly.</p>
+                  )}
+
+                  <button type="submit" className="btn btn--primary" disabled={status === 'sending'}>
+                    {status === 'sending' ? 'Sending…' : 'Send inquiry'}
+                  </button>
+                </form>
+              )}
             </div>
 
             <div className={styles.contactSide}>
@@ -98,14 +172,6 @@ export default function Contact() {
                     </li>
                   ))}
                 </ul>
-              </div>
-              <hr className="divider" />
-              <div className={styles.placeholderNote}>
-                <p>
-                  <strong>Note:</strong> Contact details are placeholders. Update phone and email in
-                  <code> src/content/siteContent.ts </code>
-                  before go-live.
-                </p>
               </div>
             </div>
           </div>
