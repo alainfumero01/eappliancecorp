@@ -1,40 +1,12 @@
-import { useState } from 'react'
 import { site } from '../content/siteContent'
 import PageSeo from '../components/PageSeo'
 import Breadcrumb from '../components/Breadcrumb'
+import { useSearchParams } from 'react-router-dom'
 import styles from './Contact.module.css'
 
-type Status = 'idle' | 'sending' | 'success' | 'error'
-
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' })
-  const [status, setStatus] = useState<Status>('idle')
-
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-    setForm(f => ({ ...f, [e.target.name]: e.target.value }))
-  }
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    setStatus('sending')
-    try {
-      const res = await fetch('https://formsubmit.co/ajax/alainfumero2000@gmail.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          Name: form.name,
-          Phone: form.phone,
-          Email: form.email,
-          Message: form.message,
-          _subject: 'New wholesale inquiry from E-Appliance website',
-        }),
-      })
-      const data = await res.json()
-      setStatus(data.success === 'true' || data.success === true ? 'success' : 'error')
-    } catch {
-      setStatus('error')
-    }
-  }
+  const [searchParams] = useSearchParams()
+  const sent = searchParams.get('sent') === '1'
 
   return (
     <>
@@ -66,13 +38,21 @@ export default function Contact() {
         <div className="container">
           <div className={styles.contactGrid}>
             <div className={styles.contactMain}>
-              {status === 'success' ? (
+              {sent ? (
                 <div className={styles.successMsg}>
                   <p className={styles.successTitle}>Message received</p>
                   <p>Thank you for reaching out. We'll review your inquiry and get back to you shortly.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className={styles.contactForm} noValidate>
+                <form
+                  action="https://formsubmit.co/alainfumero2000@gmail.com"
+                  method="POST"
+                  className={styles.contactForm}
+                >
+                  <input type="hidden" name="_subject" value="New wholesale inquiry from E-Appliance website" />
+                  <input type="hidden" name="_next" value="https://eappliancecorp.com/contact?sent=1" />
+                  <input type="hidden" name="_captcha" value="false" />
+
                   <div className={styles.fieldGroup}>
                     <label htmlFor="name" className={styles.fieldLabel}>Full name</label>
                     <input
@@ -82,8 +62,6 @@ export default function Contact() {
                       required
                       className={styles.fieldInput}
                       placeholder="Your name"
-                      value={form.name}
-                      onChange={handleChange}
                     />
                   </div>
 
@@ -96,8 +74,6 @@ export default function Contact() {
                       required
                       className={styles.fieldInput}
                       placeholder="(555) 000-0000"
-                      value={form.phone}
-                      onChange={handleChange}
                     />
                   </div>
 
@@ -110,8 +86,6 @@ export default function Contact() {
                       required
                       className={styles.fieldInput}
                       placeholder="you@company.com"
-                      value={form.email}
-                      onChange={handleChange}
                     />
                   </div>
 
@@ -124,17 +98,11 @@ export default function Contact() {
                       rows={5}
                       className={styles.fieldTextarea}
                       placeholder="Tell us your business type, categories you buy, load size, preferred hub (TX or NJ), and pickup method."
-                      value={form.message}
-                      onChange={handleChange}
                     />
                   </div>
 
-                  {status === 'error' && (
-                    <p className={styles.errorMsg}>Something went wrong. Please try again or reach out directly.</p>
-                  )}
-
-                  <button type="submit" className="btn btn--primary" disabled={status === 'sending'}>
-                    {status === 'sending' ? 'Sending…' : 'Send inquiry'}
+                  <button type="submit" className="btn btn--primary">
+                    Send inquiry
                   </button>
                 </form>
               )}
