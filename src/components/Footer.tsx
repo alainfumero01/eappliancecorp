@@ -21,17 +21,8 @@ export default function Footer() {
       <div className="container">
         <div className={styles.inner}>
           <div className={styles.brand}>
-            <img
-              src="/images/logo.svg"
-              alt={site.name}
-              className={styles.logoImg}
-              width="160"
-              height="48"
-              loading="lazy"
-            />
             <p className={styles.tagline}>{site.tagline}</p>
             <p className={styles.hubs}>{site.hubs.join(' | ')}</p>
-            <Link to="/contact" className={`btn btn--primary ${styles.ctaBtn}`}>Send an Inquiry</Link>
           </div>
 
           <nav className={styles.nav} aria-label="Footer navigation">
