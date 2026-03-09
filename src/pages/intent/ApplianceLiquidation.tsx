@@ -1,7 +1,6 @@
 ﻿import { Link } from 'react-router-dom'
 import { site } from '../../content/siteContent'
 import PageSeo from '../../components/PageSeo'
-import Breadcrumb from '../../components/Breadcrumb'
 import styles from './IntentPage.module.css'
 
 export default function ApplianceLiquidation() {
@@ -17,7 +16,6 @@ export default function ApplianceLiquidation() {
 
       <section className={styles.header}>
         <div className="container">
-          <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Appliance Liquidation Loads', path: '/appliance-liquidation-loads' }]} />
           <span className="eyebrow">Wholesale liquidation sourcing</span>
           <h1>Appliance Liquidation Loads</h1>
           <p className={styles.lead}>

@@ -1,6 +1,5 @@
 import { site } from '../content/siteContent'
 import PageSeo from '../components/PageSeo'
-import Breadcrumb from '../components/Breadcrumb'
 import { useSearchParams } from 'react-router-dom'
 import styles from './Contact.module.css'
 
@@ -24,7 +23,6 @@ export default function Contact() {
 
       <section className={styles.header}>
         <div className="container">
-          <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Contact', path: '/contact' }]} />
           <span className="eyebrow">Dealer inquiries</span>
           <h1>Contact wholesale sales</h1>
           <p className={styles.lead}>

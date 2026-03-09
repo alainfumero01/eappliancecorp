@@ -1,70 +1,8 @@
-﻿import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { site } from '../content/siteContent'
 import MediaSlot from '../components/MediaSlot'
 import PageSeo from '../components/PageSeo'
-import Breadcrumb from '../components/Breadcrumb'
-import { CANONICAL_DOMAIN } from '../seo/seoRoutes'
 import styles from './Manifests.module.css'
-
-// Add or edit loads here as inventory changes.
-const manifests = [
-  {
-    id: 'MF-2025-001',
-    date: '2025-03-01',
-    category: 'Refrigerators / Freezers',
-    units: 24,
-    hub: 'Texas',
-    status: 'Available',
-    notes: 'Mixed refrigerator configurations. Cosmetic grading varies by unit.',
-    thumbnailUrl: null as string | null,
-    videoUrl: null as string | null,
-    file: null as string | null,
-  },
-  {
-    id: 'MF-2025-002',
-    date: '2025-03-01',
-    category: 'Washers & Dryers',
-    units: 30,
-    hub: 'New Jersey',
-    status: 'Available',
-    notes: 'Pairs and singles in one mixed load. Review count and condition notes.',
-    thumbnailUrl: null as string | null,
-    videoUrl: null as string | null,
-    file: null as string | null,
-  },
-  {
-    id: 'MF-2025-003',
-    date: '2025-02-20',
-    category: 'Ranges & Ovens',
-    units: 18,
-    hub: 'Texas',
-    status: 'Pending',
-    notes: 'Mixed fuel profile and mixed cosmetic grade.',
-    thumbnailUrl: null as string | null,
-    videoUrl: null as string | null,
-    file: null as string | null,
-  },
-]
-
-const statusColor: Record<string, string> = {
-  Available: styles.statusAvailable,
-  Pending: styles.statusPending,
-  Sold: styles.statusSold,
-}
-
-const itemListSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'Wholesale Appliance Load Manifests',
-  description: 'Current wholesale appliance loads available from E-Appliance Recycling Corp',
-  url: `${CANONICAL_DOMAIN}/manifests`,
-  itemListElement: manifests.map((m, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    name: `Load ${m.id}: ${m.category} - ${m.units} units - ${m.hub} - ${m.status}`,
-    description: m.notes,
-  })),
-}
 
 export default function Manifests() {
   return (
@@ -79,12 +17,10 @@ export default function Manifests() {
           type: 'website',
         }}
         twitter={{ card: 'summary', title: 'Appliance Load Manifests & Inventory' }}
-        schema={itemListSchema}
       />
 
       <section className={styles.header}>
         <div className="container">
-          <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Inventory & Manifests', path: '/manifests' }]} />
           <span className="eyebrow">Inventory and manifests</span>
           <h1>Current load visibility for wholesale buyers</h1>
           <p className={styles.lead}>
@@ -167,125 +103,16 @@ export default function Manifests() {
           <div className={styles.tableHeader}>
             <div>
               <h2>Current load manifests</h2>
-              <p>
-                Each row represents one wholesale load. To activate richer listing details, add
-                <code className={styles.code}> thumbnailUrl </code> and
-                <code className={styles.code}> videoUrl </code> for each item.
-              </p>
+              <p>Loads are updated as inventory changes. Check back or send an inquiry for current availability.</p>
             </div>
             <Link to="/contact" className="btn btn--primary">
               Send an Inquiry
             </Link>
           </div>
 
-          {manifests.length === 0 ? (
-            <div className={styles.empty}>
-              <p>No manifests posted yet. Send an inquiry for current load availability.</p>
-            </div>
-          ) : (
-            <>
-              <div className="table-wrap" style={{ marginTop: '1.5rem' }}>
-                <table>
-                  <thead>
-                    <tr>
-                      <th className={styles.colHide}>Photo</th>
-                      <th>Load #</th>
-                      <th className={styles.colHide}>Date</th>
-                      <th>Category</th>
-                      <th className={styles.colHide}>Units</th>
-                      <th className={styles.colHide}>Hub</th>
-                      <th>Status</th>
-                      <th className={styles.colHide}>Notes</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {manifests.map((m) => (
-                      <tr key={m.id}>
-                        <td className={styles.colHide}>
-                          <div className={styles.thumbCell}>
-                            {m.thumbnailUrl ? (
-                              <img
-                                src={m.thumbnailUrl}
-                                alt={`Load ${m.id} thumbnail`}
-                                className={styles.thumb}
-                                loading="lazy"
-                                width="64"
-                                height="64"
-                              />
-                            ) : (
-                              <div className={styles.thumbPlaceholder} title="Add thumbnailUrl to activate">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                                  <circle cx="8.5" cy="8.5" r="1.5" />
-                                  <polyline points="21 15 16 10 5 21" />
-                                </svg>
-                              </div>
-                            )}
-                          </div>
-                        </td>
-                        <td className={styles.loadId}>{m.id}</td>
-                        <td className={styles.date}>
-                          {new Date(m.date).toLocaleDateString('en-US', {
-                            month: 'short',
-                            day: 'numeric',
-                            year: 'numeric',
-                          })}
-                        </td>
-                        <td>{m.category}</td>
-                        <td className={styles.colHide}>{m.units}</td>
-                        <td className={styles.colHide}>{m.hub}</td>
-                        <td>
-                          <span className={[styles.status, statusColor[m.status] ?? ''].join(' ')}>{m.status}</span>
-                        </td>
-                        <td className={`${styles.notes} ${styles.colHide}`}>{m.notes}</td>
-                        <td>
-                          <div className={styles.actions}>
-                            {m.videoUrl && (
-                              <a
-                                href={m.videoUrl}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="btn btn--primary"
-                                style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}
-                              >
-                                Watch Video
-                              </a>
-                            )}
-                            {m.file && (
-                              <a
-                                href={m.file}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="btn btn--outline"
-                                style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}
-                              >
-                                Download
-                              </a>
-                            )}
-                            {!m.videoUrl && !m.file && (
-                              <Link
-                                to="/contact"
-                                className="btn btn--ghost"
-                                style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}
-                              >
-                                Inquire
-                              </Link>
-                            )}
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <p className={styles.tableNote}>
-                <strong>Available</strong> means currently open for wholesale purchase.
-                <strong> Pending</strong> means staging or confirmation is still in progress.
-                All loads are as-is and subject to confirmed terms before release.
-              </p>
-            </>
-          )}
+          <div className={styles.empty}>
+            <p>No loads available at this time. Send an inquiry and we'll follow up with current options.</p>
+          </div>
         </div>
       </section>
 

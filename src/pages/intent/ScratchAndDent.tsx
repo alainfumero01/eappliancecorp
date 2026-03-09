@@ -1,7 +1,6 @@
 ﻿import { Link } from 'react-router-dom'
 import { site } from '../../content/siteContent'
 import PageSeo from '../../components/PageSeo'
-import Breadcrumb from '../../components/Breadcrumb'
 import styles from './IntentPage.module.css'
 
 export default function ScratchAndDent() {
@@ -17,7 +16,6 @@ export default function ScratchAndDent() {
 
       <section className={styles.header}>
         <div className="container">
-          <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Scratch-and-Dent Appliances', path: '/scratch-and-dent-appliances' }]} />
           <span className="eyebrow">Wholesale scratch-and-dent</span>
           <h1>Scratch-and-Dent Appliances - Wholesale by the Load</h1>
           <p className={styles.lead}>

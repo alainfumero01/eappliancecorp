@@ -2,7 +2,6 @@
 import { site } from '../content/siteContent'
 import MediaSlot from '../components/MediaSlot'
 import PageSeo from '../components/PageSeo'
-import Breadcrumb from '../components/Breadcrumb'
 import styles from './About.module.css'
 
 const STORY_IMAGE = null // e.g. '/images/about-warehouse.jpg'
@@ -24,7 +23,6 @@ export default function About() {
 
       <section className={styles.header}>
         <div className="container">
-          <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'About', path: '/about' }]} />
           <span className="eyebrow">About the operation</span>
           <h1>{site.yearsInBusiness}+ years in appliance load wholesale</h1>
           <p className={styles.lead}>

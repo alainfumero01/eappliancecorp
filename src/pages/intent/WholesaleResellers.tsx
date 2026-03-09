@@ -1,7 +1,6 @@
 ﻿import { Link } from 'react-router-dom'
 import { site } from '../../content/siteContent'
 import PageSeo from '../../components/PageSeo'
-import Breadcrumb from '../../components/Breadcrumb'
 import styles from './IntentPage.module.css'
 
 export default function WholesaleResellers() {
@@ -17,7 +16,6 @@ export default function WholesaleResellers() {
 
       <section className={styles.header}>
         <div className="container">
-          <Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Wholesale Appliance Loads for Resellers', path: '/wholesale-appliance-loads-for-resellers' }]} />
           <span className="eyebrow">Built for wholesale buyers</span>
           <h1>Wholesale Appliance Loads for Resellers</h1>
           <p className={styles.lead}>
