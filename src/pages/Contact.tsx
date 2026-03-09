@@ -97,7 +97,7 @@ export default function Contact() {
                       required
                       rows={5}
                       className={styles.fieldTextarea}
-                      placeholder="Tell us your business type, categories you buy, load size, preferred hub (TX or NJ), and pickup method."
+                      placeholder="Tell us your business type, categories you buy, load size, preferred hub (TX or NJ), and whether you'll self-pickup, use your own carrier, or need delivery."
                     />
                   </div>
 

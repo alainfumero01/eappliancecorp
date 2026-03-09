@@ -22,7 +22,7 @@ export default function NewJerseyWholesale() {
           <h1>New Jersey Wholesale Appliance Loads</h1>
           <p className={styles.lead}>
             Our New Jersey hub supports East Coast buyers who need steady load sourcing with direct pickup or
-            buyer-arranged freight. Inventory is dealer-only and sold under as-is wholesale terms.
+            delivery at standard freight rates. Inventory is dealer-only and sold under as-is wholesale terms.
           </p>
         </div>
       </section>

@@ -1,4 +1,4 @@
-﻿export const site = {
+export const site = {
   name: 'E-Appliance Recycling Corp',
   shortName: 'E-Appliance',
   tagline: 'Dealer-only appliance loads from customer returns and scratch-and-dent inventory',
@@ -27,7 +27,7 @@
     },
     {
       heading: 'Operational support',
-      body: 'Two hubs, straightforward pickup coordination, and direct communication by phone or text.',
+      body: 'Two hubs, pickup or delivery at standard freight rates, and straightforward load coordination.',
     },
   ],
 
@@ -54,12 +54,12 @@
     {
       step: '3',
       label: 'Confirm terms',
-      detail: 'Finalize pricing, payment timing, and pickup window.',
+      detail: 'Finalize pricing, payment timing, and logistics method.',
     },
     {
       step: '4',
-      label: 'Pickup and resell',
-      detail: 'Coordinate carrier or pickup and move inventory through your channel.',
+      label: 'Receive and resell',
+      detail: 'Pick up from our hub or arrange delivery at standard freight rates and move inventory through your channel.',
     },
   ],
 
@@ -75,8 +75,8 @@
     saleTerms: [
       'Dealer-only wholesale transactions.',
       'As-is sale structure under agreed terms.',
-      'Final pricing, pickup window, and payment timing confirmed before release.',
-      'Pickup from Texas or New Jersey hub, or buyer-arranged freight.',
+      'Final pricing, logistics method, and payment timing confirmed before release.',
+      'Pickup from Texas or New Jersey hub, or delivery at standard freight rates.',
     ],
     buyerQualification: [
       'Appliance retailers and outlet stores',
@@ -93,7 +93,7 @@
       'Business name and resale channel',
       'Preferred categories and load size',
       'Preferred hub: Texas or New Jersey',
-      'Pickup method: own truck or freight carrier',
+      'Logistics preference: self-pickup, own carrier, or delivery',
       'Target purchase timing and monthly volume',
     ],
   },

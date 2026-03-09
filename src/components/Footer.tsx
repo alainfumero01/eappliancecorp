@@ -31,6 +31,7 @@ export default function Footer() {
             />
             <p className={styles.tagline}>{site.tagline}</p>
             <p className={styles.hubs}>{site.hubs.join(' | ')}</p>
+            <Link to="/contact" className={`btn btn--primary ${styles.ctaBtn}`}>Send an Inquiry</Link>
           </div>
 
           <nav className={styles.nav} aria-label="Footer navigation">
@@ -51,11 +52,6 @@ export default function Footer() {
               ))}
             </ul>
           </nav>
-
-          <div className={styles.contact}>
-            <span className={styles.navLabel}>Contact</span>
-            <Link to="/contact" className="btn btn--primary" style={{ marginTop: '0.5rem' }}>Send an Inquiry</Link>
-          </div>
         </div>
 
         <hr className={`divider ${styles.divider}`} />

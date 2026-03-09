@@ -43,7 +43,7 @@ const guarantees = [
   {
     stat: 'TX/NJ',
     label: 'Two pickup hubs',
-    desc: 'Pickup is coordinated from Texas or New Jersey, or by buyer-arranged freight.',
+    desc: 'Pickup from Texas or New Jersey, or delivery at standard freight rates.',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -138,7 +138,7 @@ export default function Home() {
               </p>
               <p style={{ marginTop: '1rem' }}>
                 We do not run consumer retail. We do not price single units. We discuss available loads, confirm terms,
-                and coordinate pickup or freight with qualified buyers.
+                and coordinate pickup or delivery at standard freight rates with qualified buyers.
               </p>
               <div style={{ marginTop: '1.75rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                 <Link to="/about" className="btn btn--outline">
