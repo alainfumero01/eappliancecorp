@@ -168,13 +168,27 @@ const VideoScene: React.FC<{ src: string; label: string }> = ({ src, label }) =>
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
-      {/* Full-bleed video */}
+      {/* Blurred background fill (letterbox/pillarbox bars) */}
       <Video
         src={staticFile(src)}
         style={{
+          position: "absolute",
           width: "100%",
           height: "100%",
           objectFit: "cover",
+          filter: "blur(32px) brightness(0.35) saturate(0.6)",
+          transform: "scale(1.08)",
+        }}
+      />
+
+      {/* Main video — full frame visible */}
+      <Video
+        src={staticFile(src)}
+        style={{
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          objectFit: "contain",
         }}
       />
 
