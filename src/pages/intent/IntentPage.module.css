@@ -12,7 +12,7 @@
 .lead {
   font-size: clamp(1rem, 1.4vw, 1.125rem);
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.9);
   margin-top: 1rem;
   max-width: 680px;
 }
@@ -123,7 +123,7 @@
 }
 
 .ctaInner p {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.88);
   margin-top: 0.5rem;
 }
 
