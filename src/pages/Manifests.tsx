@@ -14,7 +14,7 @@ const manifests = [
     hub: 'Texas',
     status: 'Available',
     price: '$13,000',
-    notes: '15-unit gas range load. Mixed cosmetic grade, as-is wholesale terms.',
+    notes: '15-unit gas range load. New units, as-is wholesale terms.',
     file: '/manifests/appliance_manifest_WFG525S0JB6.xlsx',
   },
   {
@@ -26,7 +26,7 @@ const manifests = [
     hub: 'Texas',
     status: 'Available',
     price: '$12,990',
-    notes: '15-unit electric range load. Mixed cosmetic grade, as-is wholesale terms.',
+    notes: '15-unit electric range load. New units, as-is wholesale terms.',
     file: '/manifests/appliance_manifest_WFE515S0JB4.xlsx',
   },
 ]
