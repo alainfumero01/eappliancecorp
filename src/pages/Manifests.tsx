@@ -4,6 +4,39 @@ import MediaSlot from '../components/MediaSlot'
 import PageSeo from '../components/PageSeo'
 import styles from './Manifests.module.css'
 
+const manifests = [
+  {
+    id: 'MF-2026-001',
+    date: '2026-03-09',
+    category: 'Ranges & Ovens',
+    model: 'Whirlpool WFG525S0JB (Gas)',
+    units: 15,
+    hub: 'Texas',
+    status: 'Available',
+    price: '$13,000',
+    notes: '15-unit gas range load. Mixed cosmetic grade, as-is wholesale terms.',
+    file: '/manifests/appliance_manifest_WFG525S0JB6.xlsx',
+  },
+  {
+    id: 'MF-2026-002',
+    date: '2026-03-09',
+    category: 'Ranges & Ovens',
+    model: 'Whirlpool WFE515S0JB (Electric)',
+    units: 15,
+    hub: 'Texas',
+    status: 'Available',
+    price: '$12,990',
+    notes: '15-unit electric range load. Mixed cosmetic grade, as-is wholesale terms.',
+    file: '/manifests/appliance_manifest_WFE515S0JB4.xlsx',
+  },
+]
+
+const statusColor: Record<string, string> = {
+  Available: styles.statusAvailable,
+  Pending: styles.statusPending,
+  Sold: styles.statusSold,
+}
+
 export default function Manifests() {
   return (
     <>
@@ -110,9 +143,66 @@ export default function Manifests() {
             </Link>
           </div>
 
-          <div className={styles.empty}>
-            <p>No loads available at this time. Send an inquiry and we'll follow up with current options.</p>
+          <div className="table-wrap" style={{ marginTop: '1.5rem' }}>
+            <table>
+              <thead>
+                <tr>
+                  <th>Load #</th>
+                  <th className={styles.colHide}>Date</th>
+                  <th>Category / Model</th>
+                  <th className={styles.colHide}>Units</th>
+                  <th className={styles.colHide}>Hub</th>
+                  <th>Status</th>
+                  <th>Price</th>
+                  <th className={styles.colHide}>Notes</th>
+                  <th>Manifest</th>
+                </tr>
+              </thead>
+              <tbody>
+                {manifests.map((m) => (
+                  <tr key={m.id}>
+                    <td className={styles.loadId}>{m.id}</td>
+                    <td className={`${styles.date} ${styles.colHide}`}>
+                      {new Date(m.date).toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric',
+                      })}
+                    </td>
+                    <td>
+                      <div style={{ fontWeight: 500 }}>{m.category}</div>
+                      <div style={{ fontSize: '0.8125rem', color: 'var(--color-text-muted)', marginTop: '0.125rem' }}>{m.model}</div>
+                    </td>
+                    <td className={styles.colHide}>{m.units}</td>
+                    <td className={styles.colHide}>{m.hub}</td>
+                    <td>
+                      <span className={[styles.status, statusColor[m.status] ?? ''].join(' ')}>{m.status}</span>
+                    </td>
+                    <td>
+                      <span className={styles.price}>{m.price}</span>
+                      <span className={styles.priceNote}>excl. shipping</span>
+                    </td>
+                    <td className={`${styles.notes} ${styles.colHide}`}>{m.notes}</td>
+                    <td>
+                      <a
+                        href={m.file}
+                        download
+                        className="btn btn--outline"
+                        style={{ padding: '0.375rem 0.75rem', fontSize: '0.8125rem' }}
+                      >
+                        Download
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
+
+          <p className={styles.tableNote}>
+            <strong>Available</strong> means currently open for wholesale purchase. All loads are as-is and subject
+            to confirmed terms before release. Prices listed do not include shipping or freight costs.
+          </p>
         </div>
       </section>
 
