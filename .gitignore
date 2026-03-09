@@ -4,3 +4,11 @@ dist-ssr
 *.local
 .DS_Store
 .claude/
+
+# Remotion video project build artifacts
+video-project/node_modules/
+video-project/out/
+video-project/public/
+
+# Stray root-level folders
+manifests/

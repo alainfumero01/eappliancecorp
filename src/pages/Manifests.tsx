@@ -119,10 +119,9 @@ export default function Manifests() {
                 Final release is based on agreed wholesale terms and active inventory at the time of confirmation.
               </p>
               <MediaSlot
-                src={null}
+                src="/videos/manifest-walkthrough.mp4"
                 type="video"
-                alt="Sample load walkthrough video"
-                label="Sample walkthrough media placeholder"
+                alt="Sample load walkthrough video showing appliance condition and overview"
                 aspectRatio="16/9"
                 className={styles.sampleVideo}
               />
