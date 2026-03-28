@@ -4,18 +4,20 @@ import MediaSlot from '../components/MediaSlot'
 import PageSeo from '../components/PageSeo'
 import styles from './Manifests.module.css'
 
-const manifests: {
-  id: string
-  date: string
-  category: string
-  model: string
-  units: number
-  hub: string
-  status: string
-  price: string
-  notes: string
-  file: string
-}[] = []
+const manifests = [
+  {
+    id: 'LOAD-1774728364',
+    date: '2026-03-28',
+    category: 'Ranges & Ovens',
+    model: 'Whirlpool WFE515S0JB (Electric) + WFG525S0JV6 (Gas)',
+    units: 30,
+    hub: 'Texas',
+    status: 'Available',
+    price: '$13,500',
+    notes: '30-unit mixed range load (15 electric + 15 gas). New units, as-is wholesale terms.',
+    file: '/manifests/STOVE_TRUCK_LOAD_#1-A83FD5.csv',
+  },
+]
 
 const statusColor: Record<string, string> = {
   Available: styles.statusAvailable,
