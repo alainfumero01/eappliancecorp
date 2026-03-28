@@ -4,20 +4,18 @@ import MediaSlot from '../components/MediaSlot'
 import PageSeo from '../components/PageSeo'
 import styles from './Manifests.module.css'
 
-const manifests = [
-  {
-    id: 'MF-2026-001',
-    date: '2026-03-09',
-    category: 'Ranges & Ovens',
-    model: 'Whirlpool WFG525S0JB (Gas) + WFE515S0JB (Electric)',
-    units: 30,
-    hub: 'Texas',
-    status: 'Available',
-    price: '$25,990',
-    notes: '30-unit mixed range load (15 gas + 15 electric). New units, as-is wholesale terms.',
-    file: '/manifests/manifest-3.9.2026.xlsx',
-  },
-]
+const manifests: {
+  id: string
+  date: string
+  category: string
+  model: string
+  units: number
+  hub: string
+  status: string
+  price: string
+  notes: string
+  file: string
+}[] = []
 
 const statusColor: Record<string, string> = {
   Available: styles.statusAvailable,
