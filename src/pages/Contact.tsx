@@ -1,11 +1,31 @@
 import { site } from '../content/siteContent'
 import PageSeo from '../components/PageSeo'
-import { useSearchParams } from 'react-router-dom'
+import { useState } from 'react'
 import styles from './Contact.module.css'
 
 export default function Contact() {
-  const [searchParams] = useSearchParams()
-  const sent = searchParams.get('sent') === '1'
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+
+  async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setStatus('submitting')
+    const form = e.currentTarget
+    const data = new FormData(form)
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/alainfumero2000@gmail.com', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: data,
+      })
+      if (res.ok) {
+        setStatus('success')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
 
   return (
     <>
@@ -36,19 +56,14 @@ export default function Contact() {
         <div className="container">
           <div className={styles.contactGrid}>
             <div className={styles.contactMain}>
-              {sent ? (
+              {status === 'success' ? (
                 <div className={styles.successMsg}>
                   <p className={styles.successTitle}>Message received</p>
                   <p>Thank you for reaching out. We'll review your inquiry and get back to you shortly.</p>
                 </div>
               ) : (
-                <form
-                  action="https://formsubmit.co/alainfumero2000@gmail.com"
-                  method="POST"
-                  className={styles.contactForm}
-                >
+                <form onSubmit={handleSubmit} className={styles.contactForm}>
                   <input type="hidden" name="_subject" value="New wholesale inquiry from E-Appliance website" />
-                  <input type="hidden" name="_next" value="https://eappliancecorp.com/contact?sent=1" />
                   <input type="hidden" name="_captcha" value="false" />
 
                   <div className={styles.fieldGroup}>
@@ -99,8 +114,12 @@ export default function Contact() {
                     />
                   </div>
 
-                  <button type="submit" className="btn btn--primary">
-                    Send inquiry
+                  {status === 'error' && (
+                    <p className={styles.errorMsg}>Something went wrong. Please try again.</p>
+                  )}
+
+                  <button type="submit" className="btn btn--primary" disabled={status === 'submitting'}>
+                    {status === 'submitting' ? 'Sending…' : 'Send inquiry'}
                   </button>
                 </form>
               )}
