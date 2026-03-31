@@ -1,37 +1,11 @@
 import { site } from '../content/siteContent'
 import PageSeo from '../components/PageSeo'
-import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import styles from './Contact.module.css'
 
 export default function Contact() {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
-  const [errorDetail, setErrorDetail] = useState('')
-
-  async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setStatus('submitting')
-    const form = e.currentTarget
-    const formData = new FormData(form)
-    const payload: Record<string, string> = { access_key: 'e7d9dea7-bbc4-4555-b014-374cd4e80363' }
-    formData.forEach((value, key) => { payload[key] = value.toString() })
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload),
-      })
-      const json = await res.json().catch(() => null)
-      if (res.ok && json?.success) {
-        setStatus('success')
-      } else {
-        setErrorDetail(json?.message ?? `HTTP ${res.status}`)
-        setStatus('error')
-      }
-    } catch (err) {
-      setErrorDetail(err instanceof Error ? err.message : 'Network error')
-      setStatus('error')
-    }
-  }
+  const [searchParams] = useSearchParams()
+  const sent = searchParams.get('sent') === '1'
 
   return (
     <>
@@ -62,14 +36,20 @@ export default function Contact() {
         <div className="container">
           <div className={styles.contactGrid}>
             <div className={styles.contactMain}>
-              {status === 'success' ? (
+              {sent ? (
                 <div className={styles.successMsg}>
                   <p className={styles.successTitle}>Message received</p>
                   <p>Thank you for reaching out. We'll review your inquiry and get back to you shortly.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className={styles.contactForm}>
+                <form
+                  action="https://api.web3forms.com/submit"
+                  method="POST"
+                  className={styles.contactForm}
+                >
+                  <input type="hidden" name="access_key" value="e7d9dea7-bbc4-4555-b014-374cd4e80363" />
                   <input type="hidden" name="subject" value="New wholesale inquiry from E-Appliance website" />
+                  <input type="hidden" name="redirect" value="https://eappliancecorp.com/contact?sent=1" />
 
                   <div className={styles.fieldGroup}>
                     <label htmlFor="name" className={styles.fieldLabel}>Full name</label>
@@ -119,12 +99,8 @@ export default function Contact() {
                     />
                   </div>
 
-                  {status === 'error' && (
-                    <p className={styles.errorMsg}>Error: {errorDetail}</p>
-                  )}
-
-                  <button type="submit" className="btn btn--primary" disabled={status === 'submitting'}>
-                    {status === 'submitting' ? 'Sending…' : 'Send inquiry'}
+                  <button type="submit" className="btn btn--primary">
+                    Send inquiry
                   </button>
                 </form>
               )}
