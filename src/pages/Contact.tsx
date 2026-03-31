@@ -5,6 +5,7 @@ import styles from './Contact.module.css'
 
 export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [errorDetail, setErrorDetail] = useState('')
 
   async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -23,9 +24,11 @@ export default function Contact() {
       if (res.ok && json?.success) {
         setStatus('success')
       } else {
+        setErrorDetail(json?.message ?? `HTTP ${res.status}`)
         setStatus('error')
       }
-    } catch {
+    } catch (err) {
+      setErrorDetail(err instanceof Error ? err.message : 'Network error')
       setStatus('error')
     }
   }
@@ -117,7 +120,7 @@ export default function Contact() {
                   </div>
 
                   {status === 'error' && (
-                    <p className={styles.errorMsg}>Something went wrong. Please try again.</p>
+                    <p className={styles.errorMsg}>Error: {errorDetail}</p>
                   )}
 
                   <button type="submit" className="btn btn--primary" disabled={status === 'submitting'}>
