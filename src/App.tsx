@@ -7,6 +7,7 @@ import About from './pages/About'
 import Manifests from './pages/Manifests'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import InquirySent from './pages/InquirySent'
 import TexasWholesale from './pages/intent/TexasWholesale'
 import NewJerseyWholesale from './pages/intent/NewJerseyWholesale'
 import CustomerReturns from './pages/intent/CustomerReturns'
@@ -25,6 +26,7 @@ export function AppRoutes() {
         <Route path="about" element={<About />} />
         <Route path="manifests" element={<Manifests />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="inquiry-sent" element={<InquirySent />} />
         <Route path="texas-wholesale-appliance-loads" element={<TexasWholesale />} />
         <Route path="new-jersey-wholesale-appliance-loads" element={<NewJerseyWholesale />} />
         <Route path="customer-returns-appliances" element={<CustomerReturns />} />

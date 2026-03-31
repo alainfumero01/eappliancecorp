@@ -1,12 +1,8 @@
 import { site } from '../content/siteContent'
 import PageSeo from '../components/PageSeo'
-import { useSearchParams } from 'react-router-dom'
 import styles from './Contact.module.css'
 
 export default function Contact() {
-  const [searchParams] = useSearchParams()
-  const sent = searchParams.get('sent') === '1'
-
   return (
     <>
       <PageSeo
@@ -36,12 +32,6 @@ export default function Contact() {
         <div className="container">
           <div className={styles.contactGrid}>
             <div className={styles.contactMain}>
-              {sent ? (
-                <div className={styles.successMsg}>
-                  <p className={styles.successTitle}>Message received</p>
-                  <p>Thank you for reaching out. We'll review your inquiry and get back to you shortly.</p>
-                </div>
-              ) : (
                 <form
                   action="https://api.web3forms.com/submit"
                   method="POST"
@@ -49,7 +39,7 @@ export default function Contact() {
                 >
                   <input type="hidden" name="access_key" value="e7d9dea7-bbc4-4555-b014-374cd4e80363" />
                   <input type="hidden" name="subject" value="New wholesale inquiry from E-Appliance website" />
-                  <input type="hidden" name="redirect" value="https://eappliancecorp.com/contact?sent=1" />
+                  <input type="hidden" name="redirect" value="https://eappliancecorp.com/inquiry-sent" />
 
                   <div className={styles.fieldGroup}>
                     <label htmlFor="name" className={styles.fieldLabel}>Full name</label>
@@ -103,7 +93,6 @@ export default function Contact() {
                     Send inquiry
                   </button>
                 </form>
-              )}
             </div>
 
             <div className={styles.contactSide}>
