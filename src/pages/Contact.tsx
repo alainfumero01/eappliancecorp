@@ -12,12 +12,14 @@ export default function Contact() {
     const form = e.currentTarget
     const data = new FormData(form)
     try {
-      const res = await fetch('https://formsubmit.co/ajax/alainfumero2000@gmail.com', {
+      data.append('access_key', 'e7d9dea7-bbc4-4555-b014-374cd4e80363')
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: data,
       })
-      if (res.ok) {
+      const json = await res.json().catch(() => null)
+      if (res.ok && json?.success) {
         setStatus('success')
       } else {
         setStatus('error')
@@ -63,8 +65,7 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className={styles.contactForm}>
-                  <input type="hidden" name="_subject" value="New wholesale inquiry from E-Appliance website" />
-                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="subject" value="New wholesale inquiry from E-Appliance website" />
 
                   <div className={styles.fieldGroup}>
                     <label htmlFor="name" className={styles.fieldLabel}>Full name</label>
