@@ -10,13 +10,14 @@ export default function Contact() {
     e.preventDefault()
     setStatus('submitting')
     const form = e.currentTarget
-    const data = new FormData(form)
+    const formData = new FormData(form)
+    const payload: Record<string, string> = { access_key: 'e7d9dea7-bbc4-4555-b014-374cd4e80363' }
+    formData.forEach((value, key) => { payload[key] = value.toString() })
     try {
-      data.append('access_key', 'e7d9dea7-bbc4-4555-b014-374cd4e80363')
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: data,
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
       })
       const json = await res.json().catch(() => null)
       if (res.ok && json?.success) {
